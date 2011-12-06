@@ -23,7 +23,9 @@
     第二套方案：使用“=============”（4个以上），表示标题1 left's blog,"--------"表示标题2 left's blog 
 
 <www.baidu.com>
-![图片][](pic/blacktocat.png) "黑猫"
+![图片][2]
+[2]:pic/blacktocat.png "黑猫"
+
 ![lenin's photo](pic/blacktocat.png "lenin的照片")
 
 #  段落
