@@ -1,6 +1,6 @@
 learn the markdown - [学习MarkDown][1]
 
-[1]:https://github.com/eagleon/eagleon.github.com/blob/master/syntax.md
+[1]:https://github.com/eagleon/eagleon.github.com/blob/master/syntax.md "kankan"
 
 ===================
 *   标题
@@ -20,9 +20,9 @@ learn the markdown - [学习MarkDown][1]
 #  哲学
 
 #  标题
-第一套方案：使用一到六个“#”号分别表示<h1>到<h6>
+第一套方案：使用一到六个“#”号分别表示『<h1>到<h6>』
     第二套方案：使用“=============”（4个以上），表示<h1>left's blog</h1>,"--------"表示<h2>left's blog</h2>
-
+> 测试3 <h1>
 
 #  段落
 
