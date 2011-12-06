@@ -1,6 +1,7 @@
-learn the markdown
-[学习MarkDown][1]
-    [1]:https://github.com/eagleon/eagleon.github.com/blob/master/syntax.md
+learn the markdown - [学习MarkDown][1]
+
+[1]:https://github.com/eagleon/eagleon.github.com/blob/master/syntax.md
+
 ===================
 *   标题
     *   使用“===”(#useequal)
