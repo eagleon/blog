@@ -1,5 +1,4 @@
-learn the markdown - [学习MarkDown][1]
-
+#learn the markdown - [学习MarkDown][1]
 [1]:https://github.com/eagleon/eagleon.github.com/blob/master/syntax.md "kankan"
 
 ===================
