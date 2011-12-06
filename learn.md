@@ -23,6 +23,7 @@
     第二套方案：使用“=============”（4个以上），表示标题1 left's blog,"--------"表示标题2 left's blog 
 
 <www.baidu.com>
+![图片][/pic/blacktocat.png] "黑猫"
 #  段落
 
 #  代码
