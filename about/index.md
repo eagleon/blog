@@ -4,4 +4,4 @@ layout: page
 comments: yes
 ---
 
-我是卢克.
+我是Left.

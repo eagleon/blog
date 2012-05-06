@@ -1,6 +1,6 @@
 markdown: rdiscount
 permalink: /:year/:month/:title/
-url: http://geeklu.com
-author: 卢克
+url: http://outmyself.com
+author: eagleon
 pygments: true
 paginate: 16
