@@ -1,10 +1,14 @@
 ---
 layout: post
-category : Misc
-tags : [Markdown]
 title: Markdown 语法说明
+categories:
+- learn
+tags:
+- markdown
+- jekyll
+- github
 ---
-{% include JB/setup %}
+
 
 **NOTE:** This is Simplelified  Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to [Markdown: Syntax][eng-doc].
 
