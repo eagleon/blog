@@ -17,5 +17,11 @@ email:outmyself[at]gmail
 
 关于这套系统
 ----------------------------
-这个套系统是使用jekyll在Github上弄的。模板是使用拿的[Luke](http://geeklu.com/) 弄的。把评论改成了国内的友言。    
-特此感谢Luke 和 [谢益辉](http://yihui.name/)。
+这个套系统是使用jekyll在Github上弄的。模板是使用拿的[Luke][luke] 弄的。把评论改成了国内的友言。    
+特此感谢[Luke][luke] 和 [谢益辉][yihui]。
+
+
+
+
+[luke]:http://geeklu.com/
+[yihui]:http://yihui.name/
