@@ -20,15 +20,10 @@ email:outmyself[at]gmail
 这个套系统是使用jekyll在Github上弄的。模板是使用拿的[Luke][luke] 弄的。把评论改成了国内的友言。    
 特此感谢[Luke][luke] 和 [谢益辉][yihui]。
 
-<<<<<<< HEAD
-我最近在看的
+
+我最近在看的、读的、听的
 ----------------------------
 <div><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="666" height="326" id="passing" > <param name="movie" value="http://www.douban.com/doushow/eagleon/dolist_latest_movie|book|music_10_5_medium_nologo_self/doushow.swf" /> <param name="quality" value="high" /> <param name="scale" value="noscale"/> <param name="align" value="tl"/> <param name="wmode" value="transparent"/> <embed src="http://www.douban.com/doushow/eagleon/dolist_latest_movie|book|music_10_5_medium_nologo_self/doushow.swf" wmode="transparent" quality="high" width="666" height="326" name="passing" scale="noscale" align="tl" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /> </object></div>
-=======
-我最近在读的书
-----------------------------
-<div><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="268" height="312" id="passing" > <param name="movie" value="http://www.douban.com/doushow/eagleon/dolist_latest_book_8_3_small_nologo_noself/doushow.swf" /> <param name="quality" value="high" /> <param name="scale" value="noscale"/> <param name="align" value="tl"/> <param name="wmode" value="transparent"/> <embed src="http://www.douban.com/doushow/eagleon/dolist_latest_book_8_3_small_nologo_noself/doushow.swf" wmode="transparent" quality="high" width="268" height="312" name="passing" scale="noscale" align="tl" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /> </object></div>
->>>>>>> ce7f9bbe6ddab1f5b322342cd230153cfc8d5285
 
 
 [luke]:http://geeklu.com/
