@@ -1,7 +1,8 @@
 <section class="comment">
 
-<div id="uyan_frame"></div>
-<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=1613890" async=""></script>
+<!-- PingLun.La Begin -->
+<div id="pinglunla_here"></div><a href="http://pinglun.la/" id="logo-pinglunla">фюбшю╡</a><script type="text/javascript" src="http://static.pinglun.la/md/pinglun.la.js" charset="utf-8"></script>
+<!-- PingLun.La End -->
 
 </section>
 
