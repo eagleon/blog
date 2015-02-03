@@ -1,6 +1,5 @@
-markdown: rdiscount
+markdown: redcarpet
 permalink: /:year/:month/:title/
 url: http://outmyself.com
-author: eagleon
-pygments: true
-paginate: 16
+author: 大虾米
+highlighter: pygments

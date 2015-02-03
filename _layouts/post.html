@@ -17,19 +17,19 @@ layout: default
 <span class="license">
   Published under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">(CC) BY-NC-SA</a>
 </span>
-{% if page.categories %}
+{% if page.categories.size > 0 %}
 <span class="categories">
   in categories
   {% for cat in page.categories %}
-  <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
+  <a href="{{ site.url }}/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
   {% endfor %}
 </span>
 {% endif %}
-{% if page.tags %}
+{% if page.tags.size > 0 %}
 <span class="tags">
   tagged with 
   {% for tag in page.tags %}
-  <a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;
+  <a href="{{ site.url }}/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;
   {% endfor %}
 </span>
 {% endif %}
@@ -38,6 +38,7 @@ layout: default
 <script type="text/javascript">
 $(function(){
   $(document).keydown(function(e) {
+    if (e.target.nodeName.toUpperCase() != 'BODY') return;
     var url = false;
         if (e.which == 37 || e.which == 74) {  // Left arrow and J
             {% if page.previous %}
