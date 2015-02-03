@@ -1,0 +1,6 @@
+markdown: rdiscount
+permalink: /:year/:month/:title/
+url: http://outmyself.com
+author: eagleon
+pygments: true
+paginate: 16
