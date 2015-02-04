@@ -10,7 +10,7 @@
     <atom:link href="{{ site.url }}/feed/" rel="self" type="application/rss+xml" />
     <link>http://outmyself.com</link>
     <lastBuildDate>{{ site.time | date_to_xmlschema }}</lastBuildDate>
-    <webMaster>xie@yihui.name</webMaster>
+    <webMaster>outmyself@gmail.com</webMaster>
     {% for post in site.posts limit:10 %}
     <item>
       <title>{{ post.title | xml_escape }}</title>
