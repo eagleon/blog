@@ -167,6 +167,7 @@ redis:
 
 ![查看5000端口](/media/image/2015-2-6-5000.png)  
 
+
 fig up -d 以daemon 的方式启动，在后台运行。   
 fig ps 查看现在运行的情况   
 fig stop 停止    
