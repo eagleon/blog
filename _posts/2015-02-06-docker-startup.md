@@ -159,7 +159,8 @@ web:
    - redis
 redis:
   image: redis
-{% highlight bash %}
+{% endhighlight %}
+
 
 开启：fig up 查看是否成功   
 fig up -d 以daemon 的方式启动，在后台运行。   
