@@ -181,3 +181,4 @@ fig stop 停止
 [Docker中文指南](http://www.widuu.com/chinese_docker/)   
 [Docker使用基本教程](http://docker.widuu.com/)   
 [Docker学习笔记之一，搭建一个JAVA Tomcat运行环境](http://www.blogjava.net/yongboy/archive/2013/12/12/407498.html)   
+[使用 Docker 搭建 Java Web 运行环境](http://my.oschina.net/huangyong/blog/372491)
