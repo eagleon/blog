@@ -2,4 +2,5 @@ markdown: redcarpet
 permalink: /:year/:month/:title/
 url: http://outmyself.com
 author: 大虾米
-highlighter: pygments
+pygments: true
+mardown: redcarpet
