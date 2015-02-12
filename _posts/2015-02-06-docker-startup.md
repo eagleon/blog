@@ -18,7 +18,7 @@ Docker 虚拟化
 
 ##1.安装docker和fig
 docker安装Linux内核需要3.8以上，Ubuntu 12.04等需要升级后才可以安装。
-{% highlight bash linenos %}
+{% highlight bash %}
 sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
 sudo apt-get update
 sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
