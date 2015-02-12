@@ -1,6 +1,5 @@
-markdown: redcarpet
+markdown: kramdown
 permalink: /:year/:month/:title/
 url: http://outmyself.com
 author: 大虾米
 pygments: true
-mardown: redcarpet
