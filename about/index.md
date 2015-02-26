@@ -18,6 +18,8 @@ comments: yes
 
 email:outmyself[at]gmail
 
+<script src="http://player.radiocdn.com/iframe.js?hash=b777ae58c961116fb51e6bcda334c2772a5f8576-450-135"></script>
+
 
 我最近在看的、读的、听的
 ----------------------------
