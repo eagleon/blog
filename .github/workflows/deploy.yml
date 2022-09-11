@@ -23,7 +23,7 @@ jobs:
         with:
           persist-credentials: 'false'
           repository: ${{ env.BLOG_SOURCE }}
-          ref: 'gh-pages'
+          ref: 'master'
           token: ${{ secrets.token }}
       - name: issue生成 hexo文章
         uses: flytam/github-issue-to-hexo@v1.0.3
