@@ -4,7 +4,7 @@ env:
   # hexo源文件仓库
   BLOG_SOURCE: eagleon/hexo
   # issue链接
-  ISSUE_URL: https://github.com/eagleon/eagleon.github.com/issues
+  ISSUE_URL: https://github.com/eagleon/blog/issues
   # blog部署的页面
   BLOG: eagleon/eagleon.github.com
   # ${{ github.event.issue.user.login }}
