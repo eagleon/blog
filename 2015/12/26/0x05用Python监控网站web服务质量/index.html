@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>0x05用Python监控网站web服务质量 | 大侠曾</title>
+
+  
+  <meta name="author" content="大侠曾">
+  
+
+  
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253# -*- coding: utf-8 -*-import os,sysimport timeimport">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="0x05用Python监控网站web服务质量"/>
+
+  <meta property="og:site_name" content="大侠曾"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="大侠曾" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">大侠曾</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>0x05用Python监控网站web服务质量</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/12/26/0x05用Python监控网站web服务质量/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-12-26T20:34:58.000Z">
+          2015-12-26
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<p><img src="http://ww3.sinaimg.cn/large/4de49370jw1ezdc7byfeuj208c06nq3v.jpg" alt="temp"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os,sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> pycurl</span><br><span class="line"></span><br><span class="line">URL=<span class="string">&quot;http://www.google.com.hk&quot;</span></span><br><span class="line">c = pycurl.Curl()</span><br><span class="line">c.setopt(pycurl.URL, URL)</span><br><span class="line"></span><br><span class="line"><span class="comment">#连接超时时间,5秒</span></span><br><span class="line">c.setopt(pycurl.CONNECTTIMEOUT, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#下载超时时间,5秒</span></span><br><span class="line">c.setopt(pycurl.TIMEOUT, <span class="number">5</span>)</span><br><span class="line">c.setopt(pycurl.FORBID_REUSE, <span class="number">1</span>)</span><br><span class="line">c.setopt(pycurl.MAXREDIRS, <span class="number">1</span>)</span><br><span class="line">c.setopt(pycurl.NOPROGRESS, <span class="number">1</span>)</span><br><span class="line">c.setopt(pycurl.DNS_CACHE_TIMEOUT,<span class="number">30</span>)</span><br><span class="line">indexfile = <span class="built_in">open</span>(os.path.dirname(os.path.realpath(__file__))+<span class="string">&quot;/content.txt&quot;</span>, <span class="string">&quot;wb&quot;</span>)</span><br><span class="line">c.setopt(pycurl.WRITEHEADER, indexfile)</span><br><span class="line">c.setopt(pycurl.WRITEDATA, indexfile)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    c.perform()</span><br><span class="line"><span class="keyword">except</span> Exception,e:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;connecion error:&quot;</span>+<span class="built_in">str</span>(e)</span><br><span class="line">    indexfile.close()</span><br><span class="line">    c.close()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br><span class="line">NAMELOOKUP_TIME =  c.getinfo(c.NAMELOOKUP_TIME)</span><br><span class="line">CONNECT_TIME =  c.getinfo(c.CONNECT_TIME)</span><br><span class="line">PRETRANSFER_TIME =   c.getinfo(c.PRETRANSFER_TIME)</span><br><span class="line">STARTTRANSFER_TIME = c.getinfo(c.STARTTRANSFER_TIME)</span><br><span class="line">TOTAL_TIME = c.getinfo(c.TOTAL_TIME)</span><br><span class="line">HTTP_CODE =  c.getinfo(c.HTTP_CODE)</span><br><span class="line">SIZE_DOWNLOAD =  c.getinfo(c.SIZE_DOWNLOAD)</span><br><span class="line">HEADER_SIZE = c.getinfo(c.HEADER_SIZE)</span><br><span class="line">SPEED_DOWNLOAD=c.getinfo(c.SPEED_DOWNLOAD)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;HTTP状态码：%s&quot;</span> %(HTTP_CODE)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;DNS解析时间：%.2f ms&quot;</span>%(NAMELOOKUP_TIME*<span class="number">1000</span>)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;建立连接时间：%.2f ms&quot;</span> %(CONNECT_TIME*<span class="number">1000</span>)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;准备传输时间：%.2f ms&quot;</span> %(PRETRANSFER_TIME*<span class="number">1000</span>)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;传输开始时间：%.2f ms&quot;</span> %(STARTTRANSFER_TIME*<span class="number">1000</span>)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;传输结束总时间：%.2f ms&quot;</span> %(TOTAL_TIME*<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;下载数据包大小：%d bytes/s&quot;</span> %(SIZE_DOWNLOAD)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;HTTP头部大小：%d byte&quot;</span> %(HEADER_SIZE)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;平均下载速度：%d bytes/s&quot;</span> %(SPEED_DOWNLOAD)</span><br><span class="line"></span><br><span class="line">indexfile.close()</span><br><span class="line">c.close()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 大侠曾
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>0x16-OpenResty | 大侠曾</title>
+
+  
+  <meta name="author" content="大侠曾">
+  
+
+  
+  <meta name="description" content="openresty1. install on deepin12345678910111213141516171819wget https://www.openssl.org/source/openssl-1.0.2k.tar.gztar -zvxf openssl-1.0.2k.tar.gzcd o">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="0x16-OpenResty"/>
+
+  <meta property="og:site_name" content="大侠曾"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="大侠曾" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">大侠曾</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>0x16-OpenResty</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/10/16/0x16-OpenResty/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-10-16T17:43:18.000Z">
+          2017-10-16
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h1 id="openresty"><a href="#openresty" class="headerlink" title="openresty"></a>openresty</h1><h2 id="1-install-on-deepin"><a href="#1-install-on-deepin" class="headerlink" title="1. install on deepin"></a>1. install on deepin</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.openssl.org/source/openssl-1.0.2k.tar.gz</span><br><span class="line">tar -zvxf openssl-1.0.2k.tar.gz</span><br><span class="line">cd openssl-1.0.2k/</span><br><span class="line">patch -p1 &lt; /path/to/openresty/patches/openssl-1.0.2h-sess_set_get_cb_yield.patch</span><br><span class="line">cd ..</span><br><span class="line"></span><br><span class="line">wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.40.tar.gz</span><br><span class="line">tar -xvf pcre-8.40.tar.gz</span><br><span class="line"></span><br><span class="line">wget https://openresty.org/download/openresty-1.11.2.5.tar.gz</span><br><span class="line">tar -zxvf openresty-1.11.2.5.tar.gz</span><br><span class="line">cd openresty-1.11.2.5/</span><br><span class="line"></span><br><span class="line">## assuming your have 4 spare logical CPU cores</span><br><span class="line"></span><br><span class="line">./configure --with-openssl=../openssl-1.0.2k \</span><br><span class="line">                 --with-pcre=../pcre-8.40 -j4</span><br><span class="line">make -j4</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<h4 id="openssl安装参考"><a href="#openssl安装参考" class="headerlink" title="openssl安装参考"></a>openssl安装参考</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">1、从下列页面下载最新的OpenSSL http://openssl.org/source/</span><br><span class="line"></span><br><span class="line">2、openssl-1.0.0d.tar.gz 解压命令：tar zxvf openssl-1.0.0d.tar.gz</span><br><span class="line"></span><br><span class="line">3、默认的安装目录为/usr/local/ssl </span><br><span class="line"></span><br><span class="line">在配置过程中可以使用--prefix=/*** 改变安装目录</span><br><span class="line"></span><br><span class="line">4、./config配置</span><br><span class="line"></span><br><span class="line">5、make</span><br><span class="line"></span><br><span class="line">6、make install</span><br><span class="line"></span><br><span class="line">最后到/usr/local/ssl可以看到安装的文件</span><br><span class="line"> </span><br><span class="line">如果电脑中已经安装过OpenSSL那么需要进行升级</span><br><span class="line">可以通过命令openssl version或者openssl version -a来查看是否已经安装了OpenSSL</span><br><span class="line"></span><br><span class="line">升级过程为：</span><br><span class="line"></span><br><span class="line">1、按照安装过程执行到make install</span><br><span class="line"></span><br><span class="line">2、执行以下命令：</span><br><span class="line">mv /usr/bin/openssl /usr/bin/openssl.OFF</span><br><span class="line">mv /usr/include/openssl /usr/include/openssl.OFF</span><br><span class="line">ln –s /usr/local/ssl/bin/openssl /usr/bin/openssl</span><br><span class="line">ln –s /usr/local/ssl/include/openssl /usr/include/openssl </span><br><span class="line"></span><br><span class="line">3 配置库文件搜索路径</span><br><span class="line"></span><br><span class="line">#echo “/usr/local/ssl/lib” &gt;&gt; /etc/ld.so.conf</span><br><span class="line">#ldconfig –v</span><br><span class="line"></span><br><span class="line">4 查看openssl 版本号，验证安装正确性</span><br><span class="line"></span><br><span class="line">#openssl version –a</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 大侠曾
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

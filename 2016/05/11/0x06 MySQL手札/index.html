@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>0x06 MySQL手札 | 大侠曾</title>
+
+  
+  <meta name="author" content="大侠曾">
+  
+
+  
+  <meta name="description" content="MySQL手札01 MYSQL获取自增ID方法1SHOW TABLE STATUS;
+
+得出的结果里边对应表名记录中有个Auto_increment字段，里边有下一个自增ID的数值就是当前该表的最大自增ID.
+02 mysql字符集12SHOW VARIABLES LIKE &amp;#x27;collat">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="0x06 MySQL手札"/>
+
+  <meta property="og:site_name" content="大侠曾"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="大侠曾" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">大侠曾</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>0x06 MySQL手札</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/05/11/0x06 MySQL手札/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-05-11T10:59:07.000Z">
+          2016-05-11
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h1 id="MySQL手札"><a href="#MySQL手札" class="headerlink" title="MySQL手札"></a>MySQL手札</h1><h2 id="01-MYSQL获取自增ID方法"><a href="#01-MYSQL获取自增ID方法" class="headerlink" title="01 MYSQL获取自增ID方法"></a>01 MYSQL获取自增ID方法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLE</span> STATUS;</span><br></pre></td></tr></table></figure>
+
+<p>得出的结果里边对应表名记录中有个Auto_increment字段，里边有下一个自增ID的数值就是当前该表的最大自增ID.</p>
+<h2 id="02-mysql字符集"><a href="#02-mysql字符集" class="headerlink" title="02 mysql字符集"></a>02 mysql字符集</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SHOW VARIABLES LIKE &#x27;collation_%&#x27;;</span><br><span class="line">SHOW VARIABLES LIKE &#x27;character%&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="03-修改字段长度"><a href="#03-修改字段长度" class="headerlink" title="03 修改字段长度"></a>03 修改字段长度</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">alter table vender_info_ext  </span><br><span class="line">    MODIFY COLUMN vender_en_info varchar(300) comment &#x27;英文店铺描述&#x27;,</span><br><span class="line">    MODIFY COLUMN vender_ru_info varchar(300) comment &#x27;俄文店铺描述&#x27;,</span><br><span class="line">    MODIFY COLUMN vender_cn_info varchar(300) comment &#x27;中文店铺描述&#x27;,</span><br><span class="line">    MODIFY COLUMN vender_en_notice varchar(300) comment &#x27;英文站公告&#x27;,</span><br><span class="line">    MODIFY COLUMN vender_ru_notice varchar(300) comment &#x27;俄文站公告&#x27;,</span><br><span class="line">    MODIFY COLUMN vender_cn_notice varchar(300) comment &#x27;中文公告&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="03-查看表结构"><a href="#03-查看表结构" class="headerlink" title="03 查看表结构"></a>03 查看表结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show full fields from vender_info</span><br><span class="line">show create table vender_info</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 大侠曾
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

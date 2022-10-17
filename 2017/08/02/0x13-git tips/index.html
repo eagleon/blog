@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>0x13-git tips | 大侠曾</title>
+
+  
+  <meta name="author" content="大侠曾">
+  
+
+  
+  <meta name="description" content="本文参考 Git - Useful Tips 一文翻译，不当之处，敬请谅解git
+这篇文章的目的是给经常使用git管理项目提供一个有益的提醒。如果你是git新手，可以先阅读文后的引用部分，然后在回头阅读此篇文章。在介绍git命令之前，你可以先看看来自 on-my-zsh 提供的别名。
+基本命令
+gi">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="0x13-git tips"/>
+
+  <meta property="og:site_name" content="大侠曾"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="大侠曾" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">大侠曾</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>0x13-git tips</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/08/02/0x13-git tips/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-02T11:11:03.000Z">
+          2017-08-02
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<p>本文参考 Git - Useful Tips 一文翻译，不当之处，敬请谅解<br>git</p>
+<p>这篇文章的目的是给经常使用git管理项目提供一个有益的提醒。如果你是git新手，可以先阅读文后的引用部分，然后在回头阅读此篇文章。在介绍git命令之前，你可以先看看来自 on-my-zsh 提供的别名。</p>
+<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><ul>
+<li>git config –global user.name “Your Name”</li>
+<li>git config –global user.email “<a href="mailto:&#121;&#x6f;&#x75;&#x72;&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#121;&#x6f;&#x75;&#x72;&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a>“</li>
+<li>git config –global core.editor <your favorite editor here><ul>
+<li>Ex: git config –global core.editor vim</li>
+</ul>
+</li>
+<li>git init：初始化一个repo。</li>
+</ul>
+<h3 id="Commit-结构"><a href="#Commit-结构" class="headerlink" title="Commit 结构"></a>Commit 结构</h3><ul>
+<li>git status(gst)：查看 repo 状态</li>
+<li>工作区：<ul>
+<li>.git 目录</li>
+<li>暂存区</li>
+<li>工作目录</li>
+</ul>
+</li>
+</ul>
+<h3 id="structure"><a href="#structure" class="headerlink" title="structure"></a>structure</h3><ul>
+<li>git add <filename>(ga)：添加一个文件到暂存区</li>
+<li>git add .(gaa)：添加所有文件到暂存区</li>
+<li>git add *.js：添加所有后缀为js的文件到暂存区</li>
+<li>git rm –cached <file>：从暂存区删除一个新文件</li>
+<li>git commit -m “My first commit”(gcmsg)：创建一次带 message 的提交</li>
+<li>git commit -v -a(gca)：<ul>
+<li>-v是 verbose 的缩写，会在底部显示差异信息和更多有意义的信息</li>
+<li>-a 类似于 git add .，会添加所有被修改和删除的文件，但会忽略新创建的文件</li>
+</ul>
+</li>
+<li>git help <command>：查看对应命令的帮助手册</li>
+<li>git log(glg,glgg,glo, glog)：查看项目的提交历史</li>
+</ul>
+<h3 id="暂存区管理"><a href="#暂存区管理" class="headerlink" title="暂存区管理"></a>暂存区管理</h3><ul>
+<li>git reset HEAD <filename>(grh)：从暂存区删除一个被修改的文件</li>
+<li>git reset HEAD(grh)：从暂存区删除所有被修改的文件</li>
+<li>git checkout <filename>(gco)：从暂存区删除一个被修改的文件，并撤销文件的更改</li>
+<li>git commit -m “My first commit” –amend：添加文件&#x2F;更改在暂存区的最后一次提交</li>
+<li>git commit -v -a –amend(gca!)：添加文件&#x2F;更改在暂存区的最后一次提交</li>
+<li>.gitignore：告诉git，哪些文件不被加入版本跟踪</li>
+<li>可以使用 git add <filename> -f 命令添加一个不被版本跟踪的文件</li>
+<li>git diff <filename>(gd)：查看基于当前文件的最后一次提交的更改差异</li>
+<li>git diff (gd)：查看基于所有文件的最后一次提交的更改差异</li>
+<li>git reset HEAD~2 –soft：从项目提交历史中删除最近两次提交，但不丢弃文件的更改</li>
+<li>git reset HEAD~2 –hard：从项目提交历史中删除最近两次提交，但会丢弃文件的更改和在(最后两次)提交中创建的新文件</li>
+<li>git reset <commit> –soft –hard：<ul>
+<li>–soft：将所有被更改的文件回溯到“待提交”状态</li>
+<li>–hard：commit 之后，对被git追踪的文件的任何更改都被丢弃</li>
+</ul>
+</li>
+<li>git reflog：显示包括”被撤销”在内的所有提交</li>
+<li>git merge <commit hash>：重新提交(restore the commit)</li>
+<li>git clean -f：删除工作目录中不被git进行版本追踪的文件</li>
+</ul>
+<h3 id="Stashed-amp-Branches"><a href="#Stashed-amp-Branches" class="headerlink" title="Stashed &amp; Branches"></a>Stashed &amp; Branches</h3><h3 id="Stash"><a href="#Stash" class="headerlink" title="Stash"></a>Stash</h3><ul>
+<li>git stash(gsta)：将所有暂存区的文件移动到“储藏区”，类似于另一种类型的工作区</li>
+<li>git stash list：查看储藏队列(Stash lists)</li>
+<li>git stash apply：将最近一次储藏恢复到暂存区(可以用类似 git stash apply stash@{num}(num从0开始计数) 的命令来使用在队列中的任意一个储藏(stashes))</li>
+<li>git stash clear：清空储藏队列</li>
+<li>git stash save “name of the stash”：为储藏设置命名</li>
+<li>git stash pop(gstp)：将最近一次储藏恢复到暂存区并从储藏队列删除此储藏</li>
+<li>git stash drop(gstd)：从储藏队列删除最近一次储藏(stash@{0})(git stash drop stash@{num} 从储藏队列删除指定储藏)</li>
+</ul>
+<h3 id="Branch"><a href="#Branch" class="headerlink" title="Branch"></a>Branch</h3><p>- </p>
+<ul>
+<li>git checkout -b dev(gco)：创建 dev 分支并从当前分支切换到 dev 分支</li>
+<li>git branch(gb)：查看所有分支</li>
+<li>git checkout master(gcm)：切换到主分支</li>
+<li>git merge <branch>(gm)：合并分支</li>
+<li>git rebase master：先将 master 上的更改合并到当前分支，再添加当前分支的更改。如果有冲突，解决冲突后加 –continue 参数继续合并</li>
+<li>git branch -d <branch>： 删除分支，-D 则强制删除分支</li>
+<li>git merge <branch> –squash：将多次提交合并成一个，其流程如下：</li>
+<li><h1 id="Go-to-the-master-branch"><a href="#Go-to-the-master-branch" class="headerlink" title="Go to the master branch"></a>Go to the <code>master</code> branch</h1></li>
+<li>git checkout master</li>
+<li><h1 id="Create-a-temp-branch"><a href="#Create-a-temp-branch" class="headerlink" title="Create a temp branch"></a>Create a temp branch</h1></li>
+<li>git checkout -b temp</li>
+<li><h1 id="Merge-the-feature-x2F-x-branch-into-the-temp-using-–squash"><a href="#Merge-the-feature-x2F-x-branch-into-the-temp-using-–squash" class="headerlink" title="Merge the feature&#x2F;x branch into the temp using –squash"></a>Merge the feature&#x2F;x branch into the temp using –squash</h1></li>
+<li>git merge feature&#x2F;x –squash</li>
+<li><h1 id="See-the-new-modifications-x2F-files-in-the-Staging-Area"><a href="#See-the-new-modifications-x2F-files-in-the-Staging-Area" class="headerlink" title="See the new modifications&#x2F;files in the Staging Area"></a>See the new modifications&#x2F;files in the Staging Area</h1></li>
+<li>git status</li>
+<li><h1 id="Create-the-unified-commit"><a href="#Create-the-unified-commit" class="headerlink" title="Create the unified commit"></a>Create the unified commit</h1></li>
+<li>git commit -m “Add feature&#x2F;x”</li>
+<li><h1 id="Delete-the-feature-x2F-x-branch"><a href="#Delete-the-feature-x2F-x-branch" class="headerlink" title="Delete the feature&#x2F;x branch"></a>Delete the feature&#x2F;x branch</h1></li>
+<li>git branch -D feature&#x2F;x</li>
+<li>rebase 和 merge 的区别：</li>
+<li>rebase:</li>
+<li>提交历史(的展示)是线性的</li>
+<li>缺点：会删除最近一个 commit，然后创建一次新的 commit</li>
+<li>如果已提交到远程，不要使用 rebase</li>
+<li>merge:</li>
+<li>提交历史(的展示)是分叉的</li>
+<li>对于两个分支的合并，会创建一个次新的 commit</li>
+<li>远程仓库管理</li>
+<li></li>
+<li>git remote add <name> <url>：添加一个将被追踪的远程仓库</li>
+<li>git remote rm <name>：移除一个远程仓库</li>
+<li>git push <remote> <remote-branch>(gp,ggp)：将当前分支的本地 commit 推送到远程仓库</li>
+<li>git fetch <remote> <remote-branch>：拉取远程仓库的最新 commit 到当前(本地)分支(<remote>&#x2F;<branch>)，不会合并</li>
+<li>git pull <remote> <remote-branch>(gl,ggl)：拉取远程仓库的最新 commit 到当前(本地)分支，并自动 merge</li>
+<li>git pull –rebase(gup)：以 rebase 的方式进行合并，而不是 merge</li>
+</ul>
+<h3 id="其它有用的命令"><a href="#其它有用的命令" class="headerlink" title="其它有用的命令"></a>其它有用的命令</h3><ul>
+<li>git tag <name>：创建一个 tag(如：v1.3)</li>
+<li>git push –tags：将本地 tags 推送到远程仓库</li>
+<li>git push <tag>：推送指定的本地 tag 到远程</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 大侠曾
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,706 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 2 页 | 大侠曾</title>
+
+  
+  <meta name="author" content="大侠曾">
+  
+
+  
+
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="大侠曾"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="大侠曾" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">大侠曾</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/07/26/0x11 高效SQL原则/"><span>0x11 高效SQL原则</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/07/26/0x11 高效SQL原则/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-07-26T18:54:40.000Z">
+          2016-07-26
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h1 id="高效SQL原则"><a href="#高效SQL原则" class="headerlink" title="高效SQL原则"></a>高效SQL原则</h1><h2 id="通用SQL原则"><a href="#通用SQL原则" class="headerlink" title="通用ＳＱＬ原则"></a>通用ＳＱＬ原则</h2><h3 id="1-子查询中禁止使用order-by"><a href="#1-子查询中禁止使用order-by" class="headerlink" title="1. 子查询中禁止使用order by"></a>1. 子查询中禁止使用order by</h3><h3 id="2-禁止使用select-from"><a href="#2-禁止使用select-from" class="headerlink" title="2. 禁止使用select * from"></a>2. 禁止使用select * from</h3><h3 id="3-不使用-前导的查询，例如like-“-xxx”"><a href="#3-不使用-前导的查询，例如like-“-xxx”" class="headerlink" title="3. 不使用%前导的查询，例如like “%xxx”"></a>3. 不使用%前导的查询，例如like “%xxx”</h3><h3 id="4-不使用方向查询，例如not-in-x2F-not-like"><a href="#4-不使用方向查询，例如not-in-x2F-not-like" class="headerlink" title="4. 不使用方向查询，例如not in&#x2F;not like"></a>4. 不使用方向查询，例如not in&#x2F;not like</h3><h3 id="5-禁止应用使用IP直连数据，使用域名进行连接"><a href="#5-禁止应用使用IP直连数据，使用域名进行连接" class="headerlink" title="5. 禁止应用使用IP直连数据，使用域名进行连接"></a>5. 禁止应用使用IP直连数据，使用域名进行连接</h3><h2 id="MySQL原则"><a href="#MySQL原则" class="headerlink" title="MySQL原则"></a>MySQL原则</h2>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/06/23/0x09 正则/"><span>0x09 正则</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/06/23/0x09 正则/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-06-23T09:31:33.000Z">
+          2016-06-23
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<p>^~     标识符后面跟一个字符串。Nginx将在这个字符串匹配后停止进行正则表达式的匹配（location指令中正则表达式的匹配的结果优先使用），如：location ^~ &#x2F;images&#x2F;，你希望对&#x2F;images&#x2F;这个目录进行一些特别的操作，如增加expires头，防盗链等，但是你又想把除了这个目录的图片外的所有图片只进行增加expires头的操作，这个操作可能会用到另外一个location，例如：location <del>* .(gif|jpg|jpeg)$，这样，如果有请求&#x2F;images&#x2F;1.jpg，nginx如何决定去进行哪个location中的操作呢？结果取决于标识符^</del>，如果你这样写：location &#x2F;images&#x2F;，这样nginx会将1.jpg匹配到location <del>* .(gif|jpg|jpeg)$这个location中，这并不是你需要的结果，而增加了^</del>这个标识符后，它在匹配了&#x2F;images&#x2F;这个字符串后就停止搜索其它带正则的location。<br>&#x3D;      表示精确的查找地址，如location &#x3D; &#x2F;它只会匹配uri为&#x2F;的请求，如果请求为&#x2F;index.html，将查找另外的location，而不会匹配这个，当然可以写两个location，location &#x3D; &#x2F;和location &#x2F;，这样&#x2F;index.html将匹配到后者，如果你的站点对&#x2F;的请求量较大，可以使用这个方法来加快请求的响应速度。<br>@      表示为一个location进行命名，即自定义一个location，这个location不能被外界所访问，只能用于Nginx产生的子请求，主要为error_page和try_files。</p>
+<p>~      为区分大小写的匹配。<br><del>*     不区分大小写的匹配（匹配firefox的正则同时匹配FireFox）。<br>!</del>     不匹配的<br>!~*    不匹配的</p>
+<p>.     匹配除换行符以外的任意字符<br>\w     匹配字母或数字或下划线或汉字<br>\s     匹配任意的空白符<br>\d     匹配数字<br>\b     匹配单词的开始或结束<br>^     匹配字符串的开始<br>$     匹配字符串的结束</p>
+<ul>
+<li><pre><code>重复零次或更多次
+</code></pre>
+</li>
+<li><pre><code>重复一次或更多次
+</code></pre>
+?     重复零次或一次<br>{n}     重复n次<br>{n,}     重复n次或更多次<br>{n,m}     重复n到m次<br>*?     重复任意次，但尽可能少重复<br>+?     重复1次或更多次，但尽可能少重复<br>??     重复0次或1次，但尽可能少重复<br>{n,m}?     重复n到m次，但尽可能少重复<br>{n,}?     重复n次以上，但尽可能少重复</li>
+</ul>
+<p>\W     匹配任意不是字母，数字，下划线，汉字的字符<br>\S     匹配任意不是空白符的字符<br>\D     匹配任意非数字的字符<br>\B     匹配不是单词开头或结束的位置<br>[^x]     匹配除了x以外的任意字符<br>[^aeiou]     匹配除了aeiou这几个字母以外的任意字符</p>
+<p>捕获     (exp)     匹配exp,并捕获文本到自动命名的组里<br>(?<name>exp)     匹配exp,并捕获文本到名称为name的组里，也可以写成(?’name’exp)<br>(?:exp)     匹配exp,不捕获匹配的文本，也不给此分组分配组号<br>零宽断言     (?&#x3D;exp)     匹配exp前面的位置<br>(?&lt;&#x3D;exp)     匹配exp后面的位置<br>(?!exp)     匹配后面跟的不是exp的位置<br>(?&lt;!exp)     匹配前面不是exp的位置<br>注释     (?#comment)     这种类型的分组不对正则表达式的处理产生任何影响，用于提供注释让人阅读</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/06/05/0x08 redis手记/"><span>0x08 redis手记</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/06/05/0x08 redis手记/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-06-05T17:42:15.000Z">
+          2016-06-05
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#01">01.redis配置认证密码</a><ul>
+<li>a.修改配置文件修改密码</li>
+<li>b.通过命令修改密码</li>
+<li>c.master配置了密码，slave如何配置</li>
+</ul>
+</li>
+</ul>
+<h2 id="01-redis配置认证密码"><a href="#01-redis配置认证密码" class="headerlink" title="01.redis配置认证密码"></a><h1 id=01>01.redis配置认证密码</h2><h4 id="a-修改配置文件修改密码"><a href="#a-修改配置文件修改密码" class="headerlink" title="a.修改配置文件修改密码"></a>a.修改配置文件修改密码</h4><p>修改redis配置文件中的密码（e.g.:&#x2F;etc&#x2F;redis&#x2F;redis.conf）,去掉行前的注释，并修改密码为所需的密码,保存文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass password</span><br></pre></td></tr></table></figure>
+
+<p>重启redis</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service redis-server restart</span><br></pre></td></tr></table></figure>
+
+<p>尝试用密码登录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 127.0.0.1 -p 6379 -a password</span><br></pre></td></tr></table></figure>
+<h4 id="b-通过命令修改密码"><a href="#b-通过命令修改密码" class="headerlink" title="b.通过命令修改密码"></a>b.通过命令修改密码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379[1]&gt; config <span class="built_in">set</span> requirepass my_redis</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379[1]&gt; config get requirepass</span><br><span class="line">1) <span class="string">&quot;requirepass&quot;</span></span><br><span class="line">2) <span class="string">&quot;my_redis&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>尝试重启一下redis，用新配置的密码登录redis执行操作，发现新的密码失效，redis重新使用了配置文件中的密码。</p>
+<p>除了在登录时通过 -a 参数制定密码外，还可以登录时不指定密码，而在执行操作前进行认证。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 127.0.0.1 -p 6379</span><br><span class="line">redis 127.0.0.1:6379&gt; config get requirepass</span><br><span class="line">(error) ERR operation not permitted</span><br><span class="line">redis 127.0.0.1:6379&gt; auth myRedis</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; config get requirepass</span><br><span class="line">1) &quot;requirepass&quot;</span><br><span class="line">2) &quot;myRedis&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="c-master配置了密码，slave如何配置"><a href="#c-master配置了密码，slave如何配置" class="headerlink" title="c.master配置了密码，slave如何配置"></a>c.master配置了密码，slave如何配置</h4><p>若master配置了密码则slave也要配置相应的密码参数否则无法进行正常复制的。<br>slave中配置文件内找到如下行，移除注释，修改密码即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#masterauth  mstpassword</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/06/01/0x07 nginx杂记/"><span>0x07 nginx杂记</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/06/01/0x07 nginx杂记/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-06-01T17:01:14.000Z">
+          2016-06-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#1">1. nginx返回头包含服务器相关信息，在分布式环境定位问题</a></li>
+<li><a href="#2">2.给nginx开启文件目录模式，用于文件下载</a></li>
+<li><a href="#3">3.给nginx开启简单加密模式</a></li>
+<li><a href="#4">4.查看nginx安装了哪些模块</a></li>
+<li><a href="#5">5.nginx中获取自定义header</a></li>
+<li><a href="#6">6.设置请求头</a></li>
+<li><a href="#7">7.设置请求头</a></li>
+<li><a href="#8">8.window版本nginx</a></li>
+<li><a href="#9">9.cors</a></li>
+</ul>
+<h1 id=1>1. nginx返回头包含服务器相关信息，在分布式环境定位问题</h1>
+
+<hr>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="attribute">if</span> (<span class="variable">$server_addr</span> <span class="regexp">~* &quot;((\d+)\.(\d+))$&quot;)</span> &#123;</span><br><span class="line">        <span class="attribute">set</span> <span class="variable">$server_addr_tail</span> <span class="variable">$1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">add_header</span> ser <span class="variable">$server_addr_tail</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：<br><img src="https://ooo.0o0.ooo/2016/06/01/574ea61871f6a.png" alt="2016-06-01_170233.png"></p>
+<h2 id="2-给nginx开启文件目录模式，用于文件下载"><a href="#2-给nginx开启文件目录模式，用于文件下载" class="headerlink" title="2.给nginx开启文件目录模式，用于文件下载"></a><h1 id=2>2.给nginx开启文件目录模式，用于文件下载</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">location /download&#123;</span><br><span class="line">    root /zen/data/;</span><br><span class="line">    autoindex on;</span><br><span class="line">    autoindex_exact_size off;</span><br><span class="line">    autoindex_localtime on;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-给nginx开启简单加密模式"><a href="#3-给nginx开启简单加密模式" class="headerlink" title="3.给nginx开启简单加密模式"></a><h1 id=3>3.给nginx开启简单加密模式</h2><ol>
+<li>修改nginx配置文件</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">location /download/ &#123;</span><br><span class="line">    # 下载目录为 /home/myname/download</span><br><span class="line">    root /home/myname;</span><br><span class="line"></span><br><span class="line">    # 设置目录浏览</span><br><span class="line">    autoindex on; </span><br><span class="line"></span><br><span class="line">    # 默认为on，显示出文件的确切大小，单位是bytes。 </span><br><span class="line">    # 改为off后，显示出文件的大概大小，单位是kB或者MB或者GB </span><br><span class="line">    autoindex_exact_size off;</span><br><span class="line"></span><br><span class="line">    # 默认为off，显示的文件时间为GMT时间</span><br><span class="line">    # 注意:改为on后，显示的文件时间为文件的服务器时间 </span><br><span class="line">    autoindex_localtime on;</span><br><span class="line"></span><br><span class="line">    # 在第一次访问目录时，会弹出输入验证框</span><br><span class="line">    auth_basic &quot;Restricted&quot;;</span><br><span class="line"></span><br><span class="line">    # 存放密码的文件，/etc/nginx/passwd/download</span><br><span class="line">    auth_basic_user_file passwd/download;</span><br><span class="line"></span><br><span class="line">    # 设置charset，解决中文乱码问题</span><br><span class="line">    charset utf-8,gbk;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2)修改密码配置文件<br>输入用户名和密码（密码会在第三步被替换）</p>
+<p>vi &#x2F;etc&#x2F;nginx&#x2F;passwd&#x2F;download</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin:admin</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>设置 admin 的密码（apt-get install apache2-utils）：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htpasswd /etc/nginx/passwd/download admin</span><br></pre></td></tr></table></figure>
+
+<p>4)重启nginx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a target="_blank" rel="noopener" href="http://wenzhixin.net.cn/2013/10/19/nginx_http_auth">http://wenzhixin.net.cn/2013/10/19/nginx_http_auth</a></p>
+<h2 id="4-查看nginx安装了哪些模块"><a href="#4-查看nginx安装了哪些模块" class="headerlink" title="4.查看nginx安装了哪些模块"></a><h1 id=4>4.查看nginx安装了哪些模块</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -V</span><br></pre></td></tr></table></figure>
+<h2 id="5-nginx中获取自定义header"><a href="#5-nginx中获取自定义header" class="headerlink" title="5.nginx中获取自定义header"></a><h1 id=5>5.nginx中获取自定义header</h2><p>如果自定义header为CUSTOM_HEAD则，在nginx中的变量http_custom_head对应它的值。也就是：http_header小写变量</p>
+<h2 id="6-设置请求头"><a href="#6-设置请求头" class="headerlink" title="6.设置请求头"></a><h1 id=6>6.设置请求头</h2><p>proxy_set_header Host $http_host;<br>proxy_set_header X-Forward-For $remote_addr;</p>
+<h2 id="7-nginx黑白名单"><a href="#7-nginx黑白名单" class="headerlink" title="7.nginx黑白名单"></a><h1 id=7>7.nginx黑白名单</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deny IP; </span><br><span class="line">deny subnet; </span><br><span class="line">allow IP; </span><br><span class="line">allow subnet; </span><br><span class="line"># block all ips </span><br><span class="line">deny    all; </span><br><span class="line"># allow all ips </span><br><span class="line">allow    all;</span><br></pre></td></tr></table></figure>
+
+<p>这样设置以后，该服务器上所有的网站都会按照这个设置来拒绝或允许访问。如果想只针对某个网站，可以在具体的网站的配置中加入： </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location / &#123; </span><br><span class="line">  allow   192.168.0.0/24; </span><br><span class="line">  deny    all; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>这样就只允许192.168.0.0网段的ip访问，其他ip访问会返回一个403错误。</p>
+<p>还可以自定义一个403错误的页面，可以在&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;html下新建个error403.html文件，里面按照html的语法写个文档，写上一些说明文字。<br>然后编辑nginx.conf，加入： </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">error_page   403  /error403.html; </span><br><span class="line">location = /error403.html &#123; </span><br><span class="line">         root   html; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8-window版本nginx"><a href="#8-window版本nginx" class="headerlink" title="8.window版本nginx"></a><h1 id=8>8.window版本nginx</h2><p>启动：<code>nginx.exe</code> 或者 <code>start  nginx.exe</code></p>
+<p>重载：<code>nginx.exe -s reload</code></p>
+<p>关闭：<code>nginx -s stop 或taskkill /F /IM nginx.exe &gt; nul</code></p>
+<p>window下 nginx http concat模块的版本： <a target="_blank" rel="noopener" href="http://pan.baidu.com/s/1hrAdm0c">http://pan.baidu.com/s/1hrAdm0c</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/chuncn/archive/2011/10/14/2212291.html">http://www.cnblogs.com/chuncn/archive/2011/10/14/2212291.html</a></p>
+<h2 id="9-cors"><a href="#9-cors" class="headerlink" title="9.cors"></a><h1 id=9>9.cors</h2><p>方式一：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">location ^~ /api  &#123;</span><br><span class="line">    set $cors &quot;&quot;;</span><br><span class="line">    if ($http_origin ~* (\.eagleon\.id|\.eagleon\.com)) &#123;</span><br><span class="line">        set $cors &quot;true&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    proxy_set_header Cookie $http_cookie;</span><br><span class="line">    proxy_pass http://tomcat.eagleon;</span><br><span class="line"></span><br><span class="line">    if ($cors = &quot;true&quot;) &#123;</span><br><span class="line">        add_header &#x27;Access-Control-Allow-Origin&#x27; &quot;$http_origin&quot;;</span><br><span class="line">        add_header &#x27;Access-Control-Allow-Methods&#x27; &#x27;GET, POST, OPTIONS, DELETE, PUT&#x27;;</span><br><span class="line">        add_header &#x27;Access-Control-Allow-Credentials&#x27; &#x27;true&#x27;;</span><br><span class="line">        add_header &#x27;Access-Control-Allow-Headers&#x27; &#x27;User-Agent,Keep-Alive,Content-Type&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">    if ($request_method = OPTIONS) &#123;</span><br><span class="line">        add_header Access-Control-Allow-Origin $http_origin;</span><br><span class="line">        add_header Access-Control-Allow-Methods GET,POST,OPTIONS;</span><br><span class="line">        add_header Access-Control-Allow-Credentials true;</span><br><span class="line">        add_header Access-Control-Allow-Headers DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type;</span><br><span class="line">        add_header Access-Control-Allow-Headers Content-Type;</span><br><span class="line">        add_header Access-Control-Max-Age 1728000;</span><br><span class="line">        return 204;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方式二：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#跨域访问</span><br><span class="line">map $http_origin $corsHost &#123;</span><br><span class="line">    default 0;</span><br><span class="line">    &quot;~http://www.123admin.com&quot; http://www.123admin.com;</span><br><span class="line">    &quot;~https://www.123admin.com&quot; https://www.123admin.com;</span><br><span class="line">    &quot;~http://m.123admin.com&quot; http://m.123admin.com;</span><br><span class="line">    &quot;~http://wap.123admin.com&quot; http://wap.123admin.com;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name search.123admin.com;</span><br><span class="line">    root /nginx;</span><br><span class="line">    location / &#123;</span><br><span class="line">        add_header Access-Control-Allow-Origin $corsHost;</span><br><span class="line">        add_header Access-Control-Allow-Headers Content-Type;</span><br><span class="line">        add_header Access-Control-Allow-Methods GET,POST,OPTIONS;</span><br><span class="line">        add_header Access-Control-Allow-Credentials true;</span><br><span class="line">        # 其他逻辑</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/05/11/0x06 MySQL手札/"><span>0x06 MySQL手札</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/05/11/0x06 MySQL手札/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-05-11T10:59:07.000Z">
+          2016-05-11
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h1 id="MySQL手札"><a href="#MySQL手札" class="headerlink" title="MySQL手札"></a>MySQL手札</h1><h2 id="01-MYSQL获取自增ID方法"><a href="#01-MYSQL获取自增ID方法" class="headerlink" title="01 MYSQL获取自增ID方法"></a>01 MYSQL获取自增ID方法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLE</span> STATUS;</span><br></pre></td></tr></table></figure>
+
+<p>得出的结果里边对应表名记录中有个Auto_increment字段，里边有下一个自增ID的数值就是当前该表的最大自增ID.</p>
+<h2 id="02-mysql字符集"><a href="#02-mysql字符集" class="headerlink" title="02 mysql字符集"></a>02 mysql字符集</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SHOW VARIABLES LIKE &#x27;collation_%&#x27;;</span><br><span class="line">SHOW VARIABLES LIKE &#x27;character%&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="03-修改字段长度"><a href="#03-修改字段长度" class="headerlink" title="03 修改字段长度"></a>03 修改字段长度</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">alter table vender_info_ext  </span><br><span class="line">    MODIFY COLUMN vender_en_info varchar(300) comment &#x27;英文店铺描述&#x27;,</span><br><span class="line">    MODIFY COLUMN vender_ru_info varchar(300) comment &#x27;俄文店铺描述&#x27;,</span><br><span class="line">    MODIFY COLUMN vender_cn_info varchar(300) comment &#x27;中文店铺描述&#x27;,</span><br><span class="line">    MODIFY COLUMN vender_en_notice varchar(300) comment &#x27;英文站公告&#x27;,</span><br><span class="line">    MODIFY COLUMN vender_ru_notice varchar(300) comment &#x27;俄文站公告&#x27;,</span><br><span class="line">    MODIFY COLUMN vender_cn_notice varchar(300) comment &#x27;中文公告&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="03-查看表结构"><a href="#03-查看表结构" class="headerlink" title="03 查看表结构"></a>03 查看表结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show full fields from vender_info</span><br><span class="line">show create table vender_info</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/01/14/0x22 读《火球-UML大战需求分析》/"><span>0x22 读《火球-UML大战需求分析》</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/01/14/0x22 读《火球-UML大战需求分析》/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-01-14T18:39:58.000Z">
+          2016-01-14
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h1 id="读《火球-UML大战需求分析》"><a href="#读《火球-UML大战需求分析》" class="headerlink" title="读《火球-UML大战需求分析》"></a>读《火球-UML大战需求分析》</h1><p>公司请了潘加宇给大家培训UML，开始以为是讲各类UML图怎么画，自己也没有进行过系统培训，就去参加了。听完之后，很有收获，当然收获主要是第一天上午。</p>
+<p>下来买了《火球-UML大战需求分析》</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2015/12/26/0x05用Python监控网站web服务质量/"><span>0x05用Python监控网站web服务质量</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/12/26/0x05用Python监控网站web服务质量/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-12-26T20:34:58.000Z">
+          2015-12-26
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<p><img src="http://ww3.sinaimg.cn/large/4de49370jw1ezdc7byfeuj208c06nq3v.jpg" alt="temp"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os,sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> pycurl</span><br><span class="line"></span><br><span class="line">URL=<span class="string">&quot;http://www.google.com.hk&quot;</span></span><br><span class="line">c = pycurl.Curl()</span><br><span class="line">c.setopt(pycurl.URL, URL)</span><br><span class="line"></span><br><span class="line"><span class="comment">#连接超时时间,5秒</span></span><br><span class="line">c.setopt(pycurl.CONNECTTIMEOUT, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#下载超时时间,5秒</span></span><br><span class="line">c.setopt(pycurl.TIMEOUT, <span class="number">5</span>)</span><br><span class="line">c.setopt(pycurl.FORBID_REUSE, <span class="number">1</span>)</span><br><span class="line">c.setopt(pycurl.MAXREDIRS, <span class="number">1</span>)</span><br><span class="line">c.setopt(pycurl.NOPROGRESS, <span class="number">1</span>)</span><br><span class="line">c.setopt(pycurl.DNS_CACHE_TIMEOUT,<span class="number">30</span>)</span><br><span class="line">indexfile = <span class="built_in">open</span>(os.path.dirname(os.path.realpath(__file__))+<span class="string">&quot;/content.txt&quot;</span>, <span class="string">&quot;wb&quot;</span>)</span><br><span class="line">c.setopt(pycurl.WRITEHEADER, indexfile)</span><br><span class="line">c.setopt(pycurl.WRITEDATA, indexfile)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    c.perform()</span><br><span class="line"><span class="keyword">except</span> Exception,e:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;connecion error:&quot;</span>+<span class="built_in">str</span>(e)</span><br><span class="line">    indexfile.close()</span><br><span class="line">    c.close()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br><span class="line">NAMELOOKUP_TIME =  c.getinfo(c.NAMELOOKUP_TIME)</span><br><span class="line">CONNECT_TIME =  c.getinfo(c.CONNECT_TIME)</span><br><span class="line">PRETRANSFER_TIME =   c.getinfo(c.PRETRANSFER_TIME)</span><br><span class="line">STARTTRANSFER_TIME = c.getinfo(c.STARTTRANSFER_TIME)</span><br><span class="line">TOTAL_TIME = c.getinfo(c.TOTAL_TIME)</span><br><span class="line">HTTP_CODE =  c.getinfo(c.HTTP_CODE)</span><br><span class="line">SIZE_DOWNLOAD =  c.getinfo(c.SIZE_DOWNLOAD)</span><br><span class="line">HEADER_SIZE = c.getinfo(c.HEADER_SIZE)</span><br><span class="line">SPEED_DOWNLOAD=c.getinfo(c.SPEED_DOWNLOAD)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;HTTP状态码：%s&quot;</span> %(HTTP_CODE)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;DNS解析时间：%.2f ms&quot;</span>%(NAMELOOKUP_TIME*<span class="number">1000</span>)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;建立连接时间：%.2f ms&quot;</span> %(CONNECT_TIME*<span class="number">1000</span>)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;准备传输时间：%.2f ms&quot;</span> %(PRETRANSFER_TIME*<span class="number">1000</span>)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;传输开始时间：%.2f ms&quot;</span> %(STARTTRANSFER_TIME*<span class="number">1000</span>)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;传输结束总时间：%.2f ms&quot;</span> %(TOTAL_TIME*<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;下载数据包大小：%d bytes/s&quot;</span> %(SIZE_DOWNLOAD)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;HTTP头部大小：%d byte&quot;</span> %(HEADER_SIZE)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;平均下载速度：%d bytes/s&quot;</span> %(SPEED_DOWNLOAD)</span><br><span class="line"></span><br><span class="line">indexfile.close()</span><br><span class="line">c.close()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2015/12/10/0x04ruby环境搭建/"><span>0x04ruby环境搭建</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/12/10/0x04ruby环境搭建/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-12-10T22:18:35.000Z">
+          2015-12-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h1 id="ruby环境搭建"><a href="#ruby环境搭建" class="headerlink" title="ruby环境搭建"></a>ruby环境搭建</h1><h2 id="1-rvm"><a href="#1-rvm" class="headerlink" title="1.rvm"></a>1.rvm</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</span><br><span class="line">\curl -sSL https://get.rvm.io | bash -s stable</span><br></pre></td></tr></table></figure>
+<h2 id="2-试用淘宝源替代原生"><a href="#2-试用淘宝源替代原生" class="headerlink" title="2.  试用淘宝源替代原生"></a>2.  试用淘宝源替代原生</h2><p>FOR LINUX</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i -E &#x27;s!https?://cache.ruby-lang.org/pub/ruby!https://ruby.taobao.org/mirrors/ruby!&#x27; $rvm_path/config/db</span><br></pre></td></tr></table></figure>
+
+<p>FOR MAC</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i .bak -E &#x27;s!https?://cache.ruby-lang.org/pub/ruby!https://ruby.taobao.org/mirrors/ruby!&#x27; $rvm_path/config/db</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2015/12/10/0x03git 使用小记/"><span>0x03git 使用小记</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/12/10/0x03git 使用小记/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-12-10T21:30:30.000Z">
+          2015-12-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h2 id="1-下载："><a href="#1-下载：" class="headerlink" title="1. 下载："></a>1. 下载：</h2><p><a target="_blank" rel="noopener" href="http://code.google.com/p/msysgit/downloads/list?can=3">windows版</a><br><a target="_blank" rel="noopener" href="http://code.google.com/p/git-osx-installer/downloads/list?can=3">Mac版</a><br><a target="_blank" rel="noopener" href="http://book.git-scm.com/2_installing_git.html">Linux版</a><br>当然对于linux和Mac来说，通过apt-get install git 或者 mac下通过brew install git 来安装是最方便的。    </p>
+<h2 id="2-基本配置"><a href="#2-基本配置" class="headerlink" title="2. 基本配置"></a>2. 基本配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name Here&quot;                   </span><br><span class="line">git config --global user.email &quot;your_email@youremail.com&quot;               </span><br></pre></td></tr></table></figure>
+<h2 id="3-生成SSH-Keys"><a href="#3-生成SSH-Keys" class="headerlink" title="3. 生成SSH Keys"></a>3. 生成SSH Keys</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh      </span><br><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br><span class="line"># Creates a new ssh key using the provided email</span><br><span class="line"></span><br><span class="line"># Generating public/private rsa key pair.</span><br><span class="line"># Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]</span><br><span class="line"></span><br><span class="line">#Enter passphrase (empty for no passphrase): [Type a passphrase]</span><br><span class="line"># Enter same passphrase again: [Type passphrase again]</span><br><span class="line">#然后应该类似：</span><br><span class="line">#Your identification has been saved in /Users/you/.ssh/id_rsa.</span><br><span class="line"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</span><br><span class="line"># The key fingerprint is:</span><br><span class="line">#01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@youremail.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Windows Command Line:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type %userprofile%\.ssh\id_rsa.pub | clip</span><br></pre></td></tr></table></figure>
+
+<p>Windows PowerShell:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub | clip</span><br></pre></td></tr></table></figure>
+
+<p>Mac:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>GNU&#x2F;Linux (requires xclip):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xclip -sel clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<h2 id="4-添加SSH-KEYS到github或者bitbucket相关账户配置"><a href="#4-添加SSH-KEYS到github或者bitbucket相关账户配置" class="headerlink" title="4. 添加SSH KEYS到github或者bitbucket相关账户配置"></a>4. 添加SSH KEYS到github或者bitbucket相关账户配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>打开id_rsa.pub把其中内容复制过去。</p>
+<h2 id="5-git-clone"><a href="#5-git-clone" class="headerlink" title="5. git clone"></a>5. git clone</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@bitbucket.org:eagleon/acrm.git</span><br></pre></td></tr></table></figure>
+<h2 id="6-git-remote"><a href="#6-git-remote" class="headerlink" title="6. git remote"></a>6. git remote</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add remote_name git@bitbucket.org:eagleon/acrm.git</span><br></pre></td></tr></table></figure>
+<h2 id="7-git-push-pull-fetch"><a href="#7-git-push-pull-fetch" class="headerlink" title="7. git push,pull,fetch"></a>7. git push,pull,fetch</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git pull remote_name branch_name               </span><br><span class="line">git push remote_name branch_name   </span><br><span class="line">git pull origin master  #从远程拉取到本地master分支 </span><br><span class="line">git fetch remote_name branch_name</span><br><span class="line">git fetch origin master # 从远程拉取到本地的origin/master分支，但是不合并到master</span><br></pre></td></tr></table></figure>
+<h2 id="8-打tag-branch"><a href="#8-打tag-branch" class="headerlink" title="8. 打tag,branch"></a>8. 打tag,branch</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git tag v0.1</span><br><span class="line">git branch new_branch</span><br><span class="line">git checkout -b dev origin/dev</span><br><span class="line">git checkout -t origin/dev</span><br></pre></td></tr></table></figure>
+<h2 id="9-add-commit相关"><a href="#9-add-commit相关" class="headerlink" title="9. add,commit相关"></a>9. add,commit相关</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line">git commit -a</span><br><span class="line">git commit --amend #覆盖上次添加</span><br></pre></td></tr></table></figure>
+<h2 id="10-merge"><a href="#10-merge" class="headerlink" title="10. merge"></a>10. merge</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git merge &lt;branch&gt;  #把某个分支合并到现有分支</span><br><span class="line">git merge --no-ff develop # 默认情况下，Git执行&quot;快进式合并&quot;（fast-farward merge），会直接将Master分支指向Develop分支。使用--no-ff参数后，会执行正常合并，在Master分支上生成一个新节点。为了保证版本演进的清晰，我们希望采用这种做法。</span><br></pre></td></tr></table></figure>
+<h2 id="11-缓存SSH密码"><a href="#11-缓存SSH密码" class="headerlink" title="11. 缓存SSH密码"></a>11. 缓存SSH密码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git config credential.helper store  <span class="comment">#缓存到文件中，永久储存</span></span><br><span class="line">git config credential.helper cache  <span class="comment"># linux 缓存到内存中</span></span><br><span class="line">git config --global credential.helper wincred<span class="comment"># windows 缓存到内存中,需要安装https://github.com/Microsoft/Git-Credential-Manager-for-Windows</span></span><br><span class="line">git config --global credential.helper osxkeychain <span class="comment"># mac 缓存到keychain中</span></span><br><span class="line">git config --global credential.helper osxkeychain  <span class="comment">#linux mac windows都可以添加global参数</span></span><br><span class="line">git config credential.helper <span class="string">&#x27;cache --timeout=3600&#x27;</span> <span class="comment">#数字为保存的时间(秒，默认900) 在这个时间内输入的密码都是有效的, </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="12-丢弃本地修改"><a href="#12-丢弃本地修改" class="headerlink" title="12.丢弃本地修改"></a>12.丢弃本地修改</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout . &amp;&amp; git clean -xdf</span><br></pre></td></tr></table></figure>
+<h2 id="13-把其他分支切换为master分支"><a href="#13-把其他分支切换为master分支" class="headerlink" title="13.  把其他分支切换为master分支"></a>13.  把其他分支切换为master分支</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin +dev:master</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Update the origin repository’s master branch with the dev branch, allowing non-fast-forward updates. This can leave unreferenced commits dangling in the origin repository. Consider the following situation, where a fast-forward is not possible:</span><br><span class="line"></span><br><span class="line">            o---o---o---A---B  origin/master</span><br><span class="line">                     \</span><br><span class="line">                      X---Y---Z  dev</span><br><span class="line">The above command would change the origin repository to</span><br><span class="line"></span><br><span class="line">                      A---B  (unnamed branch)</span><br><span class="line">                     /</span><br><span class="line">            o---o---o---X---Y---Z  master</span><br></pre></td></tr></table></figure>
+<h2 id="14-git-alias"><a href="#14-git-alias" class="headerlink" title="14.  git alias"></a>14.  git alias</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[alias]</span><br><span class="line">	lg = log --color --graph --pretty=format:&#x27;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#x27; --abbrev-commit</span><br><span class="line">	last = log -1</span><br><span class="line">	co = checkout</span><br><span class="line">	ci = commit</span><br><span class="line">	br = branch</span><br><span class="line">	st = status</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="15-git-push一次到多个仓库"><a href="#15-git-push一次到多个仓库" class="headerlink" title="15.  git push一次到多个仓库"></a>15.  git push一次到多个仓库</h2><p>方法一：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url --add origin git@github.com:ehlxr/ehlxr-Hexo.git</span><br></pre></td></tr></table></figure>
+<p>方法二：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim .git/config</span><br><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = https://github.com/zxbetter/test.git</span><br><span class="line">    fetch = +refs/heads/*:refs/remotes/github/*</span><br><span class="line">    url = https://git.oschina.net/zxbetter/test.git</span><br></pre></td></tr></table></figure>
+<p>参考：<br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000011294144">https://segmentfault.com/a/1190000011294144</a><br><a target="_blank" rel="noopener" href="https://ehlxr.me/2016/07/24/Git-%E5%90%8C%E6%97%B6-push-%E5%88%B0%E5%A4%9A%E4%B8%AA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/">https://ehlxr.me/2016/07/24/Git-%E5%90%8C%E6%97%B6-push-%E5%88%B0%E5%A4%9A%E4%B8%AA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</a></p>
+<h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref:"></a>Ref:</h2><p><a target="_blank" rel="noopener" href="https://help.github.com/articles/set-up-git">Set Up Git</a><br><a target="_blank" rel="noopener" href="https://help.github.com/articles/caching-your-github-password-in-git/">Caching your GitHub password in Git</a><br><a target="_blank" rel="noopener" href="http://gitcredentialstore.codeplex.com/">git-credential-winstore</a><br><a target="_blank" rel="noopener" href="https://help.github.com/articles/generating-ssh-keys">Generating SSH keys</a><br><a target="_blank" rel="noopener" href="http://rogerdudler.github.com/git-guide/index.zh.html">git - 简明指南</a><br><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/07/git.html">Git分支管理策略</a><br><a target="_blank" rel="noopener" href="http://my.oschina.net/jerikc/blog/373905">Git远程操作详解</a>   </p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2015/12/10/0x00业精于勤，毁于嬉；行成于思，毁于随。/"><span>0x00业精于勤，毁于嬉；行成于思，毁于随。</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/12/10/0x00业精于勤，毁于嬉；行成于思，毁于随。/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-12-10T10:13:29.000Z">
+          2015-12-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<p>2015年12月10日： 业精于勤，毁于嬉；行成于思，毁于随。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+
+<nav class="pagination">
+  
+  <a href="/" class="pagination-prev">上一页</a>
+  
+  
+  <a href="/page/3/" class="pagination-next">下一页</a>
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 大侠曾
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

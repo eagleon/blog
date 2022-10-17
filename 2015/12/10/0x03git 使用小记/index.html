@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>0x03git 使用小记 | 大侠曾</title>
+
+  
+  <meta name="author" content="大侠曾">
+  
+
+  
+  <meta name="description" content="1. 下载：windows版Mac版Linux版当然对于linux和Mac来说，通过apt-get install git 或者 mac下通过brew install git 来安装是最方便的。    
+2. 基本配置12git config --global user.name &amp;quot;You">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="0x03git 使用小记"/>
+
+  <meta property="og:site_name" content="大侠曾"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="大侠曾" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">大侠曾</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>0x03git 使用小记</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/12/10/0x03git 使用小记/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-12-10T21:30:30.000Z">
+          2015-12-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h2 id="1-下载："><a href="#1-下载：" class="headerlink" title="1. 下载："></a>1. 下载：</h2><p><a target="_blank" rel="noopener" href="http://code.google.com/p/msysgit/downloads/list?can=3">windows版</a><br><a target="_blank" rel="noopener" href="http://code.google.com/p/git-osx-installer/downloads/list?can=3">Mac版</a><br><a target="_blank" rel="noopener" href="http://book.git-scm.com/2_installing_git.html">Linux版</a><br>当然对于linux和Mac来说，通过apt-get install git 或者 mac下通过brew install git 来安装是最方便的。    </p>
+<h2 id="2-基本配置"><a href="#2-基本配置" class="headerlink" title="2. 基本配置"></a>2. 基本配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name Here&quot;                   </span><br><span class="line">git config --global user.email &quot;your_email@youremail.com&quot;               </span><br></pre></td></tr></table></figure>
+<h2 id="3-生成SSH-Keys"><a href="#3-生成SSH-Keys" class="headerlink" title="3. 生成SSH Keys"></a>3. 生成SSH Keys</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh      </span><br><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br><span class="line"># Creates a new ssh key using the provided email</span><br><span class="line"></span><br><span class="line"># Generating public/private rsa key pair.</span><br><span class="line"># Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]</span><br><span class="line"></span><br><span class="line">#Enter passphrase (empty for no passphrase): [Type a passphrase]</span><br><span class="line"># Enter same passphrase again: [Type passphrase again]</span><br><span class="line">#然后应该类似：</span><br><span class="line">#Your identification has been saved in /Users/you/.ssh/id_rsa.</span><br><span class="line"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</span><br><span class="line"># The key fingerprint is:</span><br><span class="line">#01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@youremail.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Windows Command Line:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type %userprofile%\.ssh\id_rsa.pub | clip</span><br></pre></td></tr></table></figure>
+
+<p>Windows PowerShell:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub | clip</span><br></pre></td></tr></table></figure>
+
+<p>Mac:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>GNU&#x2F;Linux (requires xclip):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xclip -sel clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<h2 id="4-添加SSH-KEYS到github或者bitbucket相关账户配置"><a href="#4-添加SSH-KEYS到github或者bitbucket相关账户配置" class="headerlink" title="4. 添加SSH KEYS到github或者bitbucket相关账户配置"></a>4. 添加SSH KEYS到github或者bitbucket相关账户配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>打开id_rsa.pub把其中内容复制过去。</p>
+<h2 id="5-git-clone"><a href="#5-git-clone" class="headerlink" title="5. git clone"></a>5. git clone</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@bitbucket.org:eagleon/acrm.git</span><br></pre></td></tr></table></figure>
+<h2 id="6-git-remote"><a href="#6-git-remote" class="headerlink" title="6. git remote"></a>6. git remote</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add remote_name git@bitbucket.org:eagleon/acrm.git</span><br></pre></td></tr></table></figure>
+<h2 id="7-git-push-pull-fetch"><a href="#7-git-push-pull-fetch" class="headerlink" title="7. git push,pull,fetch"></a>7. git push,pull,fetch</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git pull remote_name branch_name               </span><br><span class="line">git push remote_name branch_name   </span><br><span class="line">git pull origin master  #从远程拉取到本地master分支 </span><br><span class="line">git fetch remote_name branch_name</span><br><span class="line">git fetch origin master # 从远程拉取到本地的origin/master分支，但是不合并到master</span><br></pre></td></tr></table></figure>
+<h2 id="8-打tag-branch"><a href="#8-打tag-branch" class="headerlink" title="8. 打tag,branch"></a>8. 打tag,branch</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git tag v0.1</span><br><span class="line">git branch new_branch</span><br><span class="line">git checkout -b dev origin/dev</span><br><span class="line">git checkout -t origin/dev</span><br></pre></td></tr></table></figure>
+<h2 id="9-add-commit相关"><a href="#9-add-commit相关" class="headerlink" title="9. add,commit相关"></a>9. add,commit相关</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line">git commit -a</span><br><span class="line">git commit --amend #覆盖上次添加</span><br></pre></td></tr></table></figure>
+<h2 id="10-merge"><a href="#10-merge" class="headerlink" title="10. merge"></a>10. merge</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git merge &lt;branch&gt;  #把某个分支合并到现有分支</span><br><span class="line">git merge --no-ff develop # 默认情况下，Git执行&quot;快进式合并&quot;（fast-farward merge），会直接将Master分支指向Develop分支。使用--no-ff参数后，会执行正常合并，在Master分支上生成一个新节点。为了保证版本演进的清晰，我们希望采用这种做法。</span><br></pre></td></tr></table></figure>
+<h2 id="11-缓存SSH密码"><a href="#11-缓存SSH密码" class="headerlink" title="11. 缓存SSH密码"></a>11. 缓存SSH密码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git config credential.helper store  <span class="comment">#缓存到文件中，永久储存</span></span><br><span class="line">git config credential.helper cache  <span class="comment"># linux 缓存到内存中</span></span><br><span class="line">git config --global credential.helper wincred<span class="comment"># windows 缓存到内存中,需要安装https://github.com/Microsoft/Git-Credential-Manager-for-Windows</span></span><br><span class="line">git config --global credential.helper osxkeychain <span class="comment"># mac 缓存到keychain中</span></span><br><span class="line">git config --global credential.helper osxkeychain  <span class="comment">#linux mac windows都可以添加global参数</span></span><br><span class="line">git config credential.helper <span class="string">&#x27;cache --timeout=3600&#x27;</span> <span class="comment">#数字为保存的时间(秒，默认900) 在这个时间内输入的密码都是有效的, </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="12-丢弃本地修改"><a href="#12-丢弃本地修改" class="headerlink" title="12.丢弃本地修改"></a>12.丢弃本地修改</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout . &amp;&amp; git clean -xdf</span><br></pre></td></tr></table></figure>
+<h2 id="13-把其他分支切换为master分支"><a href="#13-把其他分支切换为master分支" class="headerlink" title="13.  把其他分支切换为master分支"></a>13.  把其他分支切换为master分支</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin +dev:master</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Update the origin repository’s master branch with the dev branch, allowing non-fast-forward updates. This can leave unreferenced commits dangling in the origin repository. Consider the following situation, where a fast-forward is not possible:</span><br><span class="line"></span><br><span class="line">            o---o---o---A---B  origin/master</span><br><span class="line">                     \</span><br><span class="line">                      X---Y---Z  dev</span><br><span class="line">The above command would change the origin repository to</span><br><span class="line"></span><br><span class="line">                      A---B  (unnamed branch)</span><br><span class="line">                     /</span><br><span class="line">            o---o---o---X---Y---Z  master</span><br></pre></td></tr></table></figure>
+<h2 id="14-git-alias"><a href="#14-git-alias" class="headerlink" title="14.  git alias"></a>14.  git alias</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[alias]</span><br><span class="line">	lg = log --color --graph --pretty=format:&#x27;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#x27; --abbrev-commit</span><br><span class="line">	last = log -1</span><br><span class="line">	co = checkout</span><br><span class="line">	ci = commit</span><br><span class="line">	br = branch</span><br><span class="line">	st = status</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="15-git-push一次到多个仓库"><a href="#15-git-push一次到多个仓库" class="headerlink" title="15.  git push一次到多个仓库"></a>15.  git push一次到多个仓库</h2><p>方法一：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url --add origin git@github.com:ehlxr/ehlxr-Hexo.git</span><br></pre></td></tr></table></figure>
+<p>方法二：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim .git/config</span><br><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = https://github.com/zxbetter/test.git</span><br><span class="line">    fetch = +refs/heads/*:refs/remotes/github/*</span><br><span class="line">    url = https://git.oschina.net/zxbetter/test.git</span><br></pre></td></tr></table></figure>
+<p>参考：<br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000011294144">https://segmentfault.com/a/1190000011294144</a><br><a target="_blank" rel="noopener" href="https://ehlxr.me/2016/07/24/Git-%E5%90%8C%E6%97%B6-push-%E5%88%B0%E5%A4%9A%E4%B8%AA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/">https://ehlxr.me/2016/07/24/Git-%E5%90%8C%E6%97%B6-push-%E5%88%B0%E5%A4%9A%E4%B8%AA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</a></p>
+<h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref:"></a>Ref:</h2><p><a target="_blank" rel="noopener" href="https://help.github.com/articles/set-up-git">Set Up Git</a><br><a target="_blank" rel="noopener" href="https://help.github.com/articles/caching-your-github-password-in-git/">Caching your GitHub password in Git</a><br><a target="_blank" rel="noopener" href="http://gitcredentialstore.codeplex.com/">git-credential-winstore</a><br><a target="_blank" rel="noopener" href="https://help.github.com/articles/generating-ssh-keys">Generating SSH keys</a><br><a target="_blank" rel="noopener" href="http://rogerdudler.github.com/git-guide/index.zh.html">git - 简明指南</a><br><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/07/git.html">Git分支管理策略</a><br><a target="_blank" rel="noopener" href="http://my.oschina.net/jerikc/blog/373905">Git远程操作详解</a>   </p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 大侠曾
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

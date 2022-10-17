@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 3 页 | 大侠曾</title>
+
+  
+  <meta name="author" content="大侠曾">
+  
+
+  
+
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="大侠曾"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="大侠曾" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">大侠曾</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2015/12/04/0x02[web]servlet相关知识/"><span>0x02[web]servlet相关知识</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/12/04/0x02[web]servlet相关知识/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-12-04T11:38:22.000Z">
+          2015-12-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h1 id="servlet相关知识"><a href="#servlet相关知识" class="headerlink" title="servlet相关知识"></a>servlet相关知识</h1><h2 id="1-HttpSessionListener-和-HttpSessionBindingListener"><a href="#1-HttpSessionListener-和-HttpSessionBindingListener" class="headerlink" title="1.HttpSessionListener 和 HttpSessionBindingListener"></a>1.HttpSessionListener 和 HttpSessionBindingListener</h2><p><strong>HttpSessionListener</strong>:<br>setAttribute(‘xxx’,HttpSessionBindingListener的实现)  的时候，会触发事件。 绑定在attribute上</p>
+<p><strong>HttpSessionBindingListener</strong>:<br>web容器上。容器上的session注册和失效会触发事件。 活动session获取到提示事件。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2015/12/02/0x01常用Linux命令/"><span>0x01常用Linux命令</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/12/02/0x01常用Linux命令/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-12-02T10:05:24.000Z">
+          2015-12-02
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h1 id="常用Linux命令"><a href="#常用Linux命令" class="headerlink" title="常用Linux命令"></a>常用Linux命令</h1><h2 id="1-用wget下载oracle-jdk"><a href="#1-用wget下载oracle-jdk" class="headerlink" title="1. 用wget下载oracle jdk"></a>1. 用wget下载oracle jdk</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate --no-cookies --header <span class="string">&quot;Cookie: oraclelicense=accept-securebackup-cookie&quot;</span> http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate --no-cookies --header <span class="string">&quot;Cookie: oraclelicense=accept-securebackup-cookie&quot;</span> http://download.oracle.com/otn-pub/java/jdk/8u65-b17/jdk-8u65-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+<h2 id="2-代码行数统计"><a href="#2-代码行数统计" class="headerlink" title="2.代码行数统计"></a>2.代码行数统计</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find . -name <span class="string">&quot;*.java&quot;</span>|xargs <span class="built_in">cat</span>|grep -v -e ^$ -e ^\s*\/\/.*$|<span class="built_in">wc</span> -l</span><br><span class="line">find . <span class="string">&quot;(&quot;</span> -name <span class="string">&quot;*.java&quot;</span> <span class="string">&quot;)&quot;</span> -<span class="built_in">print</span> | xargs <span class="built_in">wc</span> -l</span><br><span class="line">find . -name <span class="string">&quot;*.java&quot;</span>|xargs <span class="built_in">cat</span>|<span class="built_in">wc</span> -l</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-安装jdk并绑定命令行"><a href="#3-安装jdk并绑定命令行" class="headerlink" title="3.安装jdk并绑定命令行"></a>3.安装jdk并绑定命令行</h2><p>解压JDK安装包，使用update-alternatives 来绑定命令行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#update-alternatives --install /usr/bin/java java /usr/java/java7/bin/java 1100  </span><br><span class="line">#update-alternatives --install /usr/bin/javac javac /usr/java/java7/bin/javac 1100  </span><br></pre></td></tr></table></figure>
+
+<p>如果存在多个，可以使用，来修改默认java对应的链接：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># update-alternatives --config java </span><br></pre></td></tr></table></figure>
+<h2 id="4-nginx黑名单"><a href="#4-nginx黑名单" class="headerlink" title="4.nginx黑名单"></a>4.nginx黑名单</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n50000 /var/log/nginx/access.log |awk &#x27;&#123;print $1,$7,$9&#125;&#x27; |grep -i -v -E &quot;google|yahoo|baidu|msnbot|FeedSky|sogou|360|bing|soso|403|api&quot; |awk &#x27;&#123;print $1&#125;&#x27;|sort|uniq -c|sort -rn|awk &#x27;&#123;if($1&gt;1000)print &quot;deny &quot;$2&quot;;&quot;&#125;&#x27; &gt; /etc/nginx/conf.d/blockip.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n50000 /var/log/nginx/access.log |awk &#x27;&#123;print $1&#125;&#x27;|sort|uniq -c|sort -rn</span><br></pre></td></tr></table></figure>
+<h2 id="5-tail-加上过滤参数"><a href="#5-tail-加上过滤参数" class="headerlink" title="5.tail 加上过滤参数"></a>5.tail 加上过滤参数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -f www.jiangren.us_access.log | grep --line-buffered <span class="string">&quot;jd_attack_test&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-查看操作系统版本及基本信息"><a href="#6-查看操作系统版本及基本信息" class="headerlink" title="6.查看操作系统版本及基本信息"></a>6.查看操作系统版本及基本信息</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br><span class="line">lsb_release -a</span><br><span class="line">cat /proc/version</span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure>
+<h2 id="7-占用端口进程查询"><a href="#7-占用端口进程查询" class="headerlink" title="7.占用端口进程查询"></a>7.占用端口进程查询</h2><h3 id="windows-下占用端口查询以及关闭"><a href="#windows-下占用端口查询以及关闭" class="headerlink" title="- windows 下占用端口查询以及关闭"></a>- windows 下占用端口查询以及关闭</h3><p><strong>查询端口占用的进程ID</strong><br>netstat -ano   各个端口占用和进程PID<br>netstat -aon | findstr “80”     </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> C:\Users\admin&gt;netstat -aon|findstr &quot;80&quot;</span><br><span class="line">TCP    127.0.0.1:9080         0.0.0.0:0              LISTENING       4632</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看端口号所对应的应用程序</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tasklist | findstr &quot;  4632&quot; </span><br><span class="line">GROOVE.EXE                    4632 Console                    1     84,880 K</span><br></pre></td></tr></table></figure>
+
+<p>很明显,是GROOVE.EXE 占用了80端口，GROOVE.EXE 一个IE的ACTIVEX控件。</p>
+<p><strong>终止进程</strong> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /pid 4632 /F </span><br></pre></td></tr></table></figure>
+
+<p> 或则使用 <code>taskkill /f /t /im GROOVE.exe</code></p>
+<h3 id="linux下占用端口查询以及关闭"><a href="#linux下占用端口查询以及关闭" class="headerlink" title="- linux下占用端口查询以及关闭"></a>- linux下占用端口查询以及关闭</h3><p><strong>查询端口号占用，根据端口查看进程信息</strong> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@server2 ~]# lsof -i:80</span><br><span class="line">COMMAND  PID   USER   FD   TYPE DEVICE SIZE NODE NAME</span><br><span class="line">httpd   5014   root    3u  IPv4  14346       TCP server2:http (LISTEN)</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据进程号查看进程对应的可执行程序</strong><br>ps -f -p 进程号 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps -f -p 5014</span><br><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">root      5014     1  0 17:26 ?        00:00:00 /usr/local/apache/bin/httpd -k</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据可执行程序查看动态链接</strong><br>ldd 可执行文件名 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ldd  /usr/local/apache/bin/httpd</span><br><span class="line">        linux-vdso.so.1 =&gt;  (0x00007fff9dc90000)</span><br><span class="line">        libaprutil-0.so.0 =&gt; /usr/local/apache/lib/libaprutil-0.so.0 (0x00002af026fcd000)   </span><br></pre></td></tr></table></figure>
+
+<p><strong>根据端口号得到其占用的进程的详细信息</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -tlnp|grep 80</span><br><span class="line">tcp        0      0 192.168.33.10:80            0.0.0.0:*                   LISTEN      5014/httpd</span><br><span class="line">tcp        0      0 0.0.0.0:48054               0.0.0.0:*                   LISTEN      5386/java</span><br></pre></td></tr></table></figure>
+
+<p><strong>一次性的清除占用80端口的程序</strong><br>&#96;lsof -i :80|grep -v “PID”|awk ‘{print “kill -9”,$2}’|sh</p>
+<p><strong>手工终止进程的运行</strong><br><code>kill 5014</code>如果终止不了，可以强制终止<code>kill -9  5014</code></p>
+<h2 id="8-ssh-免密码登录"><a href="#8-ssh-免密码登录" class="headerlink" title="8.ssh 免密码登录"></a>8.ssh 免密码登录</h2><p>使用ssh-keygen生成秘钥，然后把公钥(id_rsa.pub)复制到远程机器上(~&#x2F;.ssh&#x2F;authorized_keys)。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br><span class="line">ssh-copy-id user@host</span><br></pre></td></tr></table></figure>
+
+<p>如果还是不行，需要输入密码，就打开远程主机的&#x2F;etc&#x2F;ssh&#x2F;sshd_config这个文件，检查下面几行前面”#”注释是否取掉。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">AuthorizedKeysFile .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>如果还是不行，加上调试参数<code>ssh root@ip -vv</code>，查看什么地方不行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">debug1: Authentications that can continue: publickey,password</span><br><span class="line">debug1: Next authentication method: publickey</span><br><span class="line">debug1: Offering RSA public key: /home/felix021/.ssh/id_rsa</span><br><span class="line">debug2: we sent a publickey packet, wait for reply</span><br><span class="line">debug1: Authentications that can continue: publickey,password</span><br><span class="line">debug1: Trying private key: /home/felix021/.ssh/id_dsa</span><br><span class="line">debug1: Trying private key: /home/felix021/.ssh/id_ecdsa</span><br><span class="line">debug2: we did not send a packet, disable method</span><br><span class="line">debug1: Next authentication method: password</span><br></pre></td></tr></table></figure>
+
+<p>具体是什么问题，可以在远程机器上通过执行 <code>/usr/sbin/sshd -d -p 2222</code> （在2222端口启动一个带debug输出的sshd） ，然后 s<code>sh root@ip -vv -p 2222</code> ，可以看到在远程机器上sshd输出了一行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Authentication refused: bad ownership or modes for directory /root</span><br></pre></td></tr></table></figure>
+
+<p>这时候就可以基本确定是由于目录权限问题，调整相应目录的权限即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod go-w ~/</span><br><span class="line">chmod 700 ~/.ssh</span><br><span class="line">chmod 600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+
+<nav class="pagination">
+  
+  <a href="/page/2/" class="pagination-prev">上一页</a>
+  
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 大侠曾
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

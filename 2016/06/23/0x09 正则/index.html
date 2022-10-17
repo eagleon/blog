@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>0x09 正则 | 大侠曾</title>
+
+  
+  <meta name="author" content="大侠曾">
+  
+
+  
+  <meta name="description" content="^~     标识符后面跟一个字符串。Nginx将在这个字符串匹配后停止进行正则表达式的匹配（location指令中正则表达式的匹配的结果优先使用），如：location ^~ &amp;#x2F;images&amp;#x2F;，你希望对&amp;#x2F;images&amp;#x2F;这个目录进行一些特别的操作，如增加exp">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="0x09 正则"/>
+
+  <meta property="og:site_name" content="大侠曾"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="大侠曾" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">大侠曾</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>0x09 正则</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/06/23/0x09 正则/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-06-23T09:31:33.000Z">
+          2016-06-23
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<p>^~     标识符后面跟一个字符串。Nginx将在这个字符串匹配后停止进行正则表达式的匹配（location指令中正则表达式的匹配的结果优先使用），如：location ^~ &#x2F;images&#x2F;，你希望对&#x2F;images&#x2F;这个目录进行一些特别的操作，如增加expires头，防盗链等，但是你又想把除了这个目录的图片外的所有图片只进行增加expires头的操作，这个操作可能会用到另外一个location，例如：location <del>* .(gif|jpg|jpeg)$，这样，如果有请求&#x2F;images&#x2F;1.jpg，nginx如何决定去进行哪个location中的操作呢？结果取决于标识符^</del>，如果你这样写：location &#x2F;images&#x2F;，这样nginx会将1.jpg匹配到location <del>* .(gif|jpg|jpeg)$这个location中，这并不是你需要的结果，而增加了^</del>这个标识符后，它在匹配了&#x2F;images&#x2F;这个字符串后就停止搜索其它带正则的location。<br>&#x3D;      表示精确的查找地址，如location &#x3D; &#x2F;它只会匹配uri为&#x2F;的请求，如果请求为&#x2F;index.html，将查找另外的location，而不会匹配这个，当然可以写两个location，location &#x3D; &#x2F;和location &#x2F;，这样&#x2F;index.html将匹配到后者，如果你的站点对&#x2F;的请求量较大，可以使用这个方法来加快请求的响应速度。<br>@      表示为一个location进行命名，即自定义一个location，这个location不能被外界所访问，只能用于Nginx产生的子请求，主要为error_page和try_files。</p>
+<p>~      为区分大小写的匹配。<br><del>*     不区分大小写的匹配（匹配firefox的正则同时匹配FireFox）。<br>!</del>     不匹配的<br>!~*    不匹配的</p>
+<p>.     匹配除换行符以外的任意字符<br>\w     匹配字母或数字或下划线或汉字<br>\s     匹配任意的空白符<br>\d     匹配数字<br>\b     匹配单词的开始或结束<br>^     匹配字符串的开始<br>$     匹配字符串的结束</p>
+<ul>
+<li><pre><code>重复零次或更多次
+</code></pre>
+</li>
+<li><pre><code>重复一次或更多次
+</code></pre>
+?     重复零次或一次<br>{n}     重复n次<br>{n,}     重复n次或更多次<br>{n,m}     重复n到m次<br>*?     重复任意次，但尽可能少重复<br>+?     重复1次或更多次，但尽可能少重复<br>??     重复0次或1次，但尽可能少重复<br>{n,m}?     重复n到m次，但尽可能少重复<br>{n,}?     重复n次以上，但尽可能少重复</li>
+</ul>
+<p>\W     匹配任意不是字母，数字，下划线，汉字的字符<br>\S     匹配任意不是空白符的字符<br>\D     匹配任意非数字的字符<br>\B     匹配不是单词开头或结束的位置<br>[^x]     匹配除了x以外的任意字符<br>[^aeiou]     匹配除了aeiou这几个字母以外的任意字符</p>
+<p>捕获     (exp)     匹配exp,并捕获文本到自动命名的组里<br>(?<name>exp)     匹配exp,并捕获文本到名称为name的组里，也可以写成(?’name’exp)<br>(?:exp)     匹配exp,不捕获匹配的文本，也不给此分组分配组号<br>零宽断言     (?&#x3D;exp)     匹配exp前面的位置<br>(?&lt;&#x3D;exp)     匹配exp后面的位置<br>(?!exp)     匹配后面跟的不是exp的位置<br>(?&lt;!exp)     匹配前面不是exp的位置<br>注释     (?#comment)     这种类型的分组不对正则表达式的处理产生任何影响，用于提供注释让人阅读</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 大侠曾
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

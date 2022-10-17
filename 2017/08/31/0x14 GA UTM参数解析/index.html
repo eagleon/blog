@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>0x14 GA UTM参数解析 | 大侠曾</title>
+
+  
+  <meta name="author" content="大侠曾">
+  
+
+  
+  <meta name="description" content="GA UTM参数解析Introduction如果你订阅了知乎的每周精选，点击其中链接最终打开的页面URL应该是是类似这种形式的：
+https://www.zhihu.com/question/51459956/answer/130299367?utm_campaign=weekly239&amp;amp;u">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="0x14 GA UTM参数解析"/>
+
+  <meta property="og:site_name" content="大侠曾"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="大侠曾" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">大侠曾</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>0x14 GA UTM参数解析</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/08/31/0x14 GA UTM参数解析/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-31T16:45:53.000Z">
+          2017-08-31
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h1 id="GA-UTM参数解析"><a href="#GA-UTM参数解析" class="headerlink" title="GA UTM参数解析"></a>GA UTM参数解析</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>如果你订阅了知乎的每周精选，点击其中链接最终打开的页面URL应该是是类似这种形式的：</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/51459956/answer/130299367?utm_campaign=weekly239&amp;utm_source=weekly-digest&amp;utm_medium=email">https://www.zhihu.com/question/51459956/answer/130299367?utm_campaign=weekly239&amp;utm_source=weekly-digest&amp;utm_medium=email</a><br>可以看到上边url 问号后边带了些小尾巴，即utm_campaign&#x3D;weekly239&amp;utm_source&#x3D;weekly-digest&amp;utm_medium&#x3D;email，这种utm_开头的就是网站流量分析中常说的UTM参数，其主要用来跟踪流量的来源。</p>
+<h2 id="UTM参数的含义"><a href="#UTM参数的含义" class="headerlink" title="UTM参数的含义"></a>UTM参数的含义</h2><p>上边知乎精选的URL使用了三个UTM参数，即utm_campaign, utm_source,utm_medium，实际上UTM参数总共有五个，而这里的三个是最常用的，以下说明下五个UTM参数的含义：</p>
+<p><strong>utm_source</strong>：一般用来标识来源，在GA 使用UTM参数时该参数是必选的，上述utm_source&#x3D;weekly-digest表示流量来自weekly-digest</p>
+<p><strong>utm_medium</strong>：一般用来标识媒介，在GA 使用UTM参数时该参数也是必选的，通常这里会用付费方式（如cpc、cpm）或者渠道所属类别（比如email、social），上述utm_medium&#x3D;email表示流量来源所属渠道是email</p>
+<p><strong>utm_campaign</strong>：一般用来标识营销活动名称，GA 推荐使用该参数，上述utm_campaign&#x3D;weekly239表示流量来自weekly239这波活动</p>
+<p><strong>utm_term</strong>：一般用来标识关键词，在GA 中并非必须使用，在SEM活动中这个参数通常来放投放词，比如utm_term&#x3D;web-analytics-tool</p>
+<p><strong>utm_content</strong>：一般用来标识创意的版本，在GA中并非必须使用，实际广告投放中如果以上四个参数不能满足区分流量的需求，可以考虑下使用这个参数，比如用来标识A版本和B版本，或者用来标识是在顶部banner还是右侧广告等等</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 大侠曾
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

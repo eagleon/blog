@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>0x07 nginx杂记 | 大侠曾</title>
+
+  
+  <meta name="author" content="大侠曾">
+  
+
+  
+  <meta name="description" content="目录
+1. nginx返回头包含服务器相关信息，在分布式环境定位问题
+2.给nginx开启文件目录模式，用于文件下载
+3.给nginx开启简单加密模式
+4.查看nginx安装了哪些模块
+5.nginx中获取自定义header
+6.设置请求头
+7.设置请求头
+8.window版本nginx
+9.cor">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="0x07 nginx杂记"/>
+
+  <meta property="og:site_name" content="大侠曾"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="大侠曾" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">大侠曾</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>0x07 nginx杂记</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/06/01/0x07 nginx杂记/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-06-01T17:01:14.000Z">
+          2016-06-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <span id="more"></span>
+
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#1">1. nginx返回头包含服务器相关信息，在分布式环境定位问题</a></li>
+<li><a href="#2">2.给nginx开启文件目录模式，用于文件下载</a></li>
+<li><a href="#3">3.给nginx开启简单加密模式</a></li>
+<li><a href="#4">4.查看nginx安装了哪些模块</a></li>
+<li><a href="#5">5.nginx中获取自定义header</a></li>
+<li><a href="#6">6.设置请求头</a></li>
+<li><a href="#7">7.设置请求头</a></li>
+<li><a href="#8">8.window版本nginx</a></li>
+<li><a href="#9">9.cors</a></li>
+</ul>
+<h1 id=1>1. nginx返回头包含服务器相关信息，在分布式环境定位问题</h1>
+
+<hr>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="attribute">if</span> (<span class="variable">$server_addr</span> <span class="regexp">~* &quot;((\d+)\.(\d+))$&quot;)</span> &#123;</span><br><span class="line">        <span class="attribute">set</span> <span class="variable">$server_addr_tail</span> <span class="variable">$1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">add_header</span> ser <span class="variable">$server_addr_tail</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：<br><img src="https://ooo.0o0.ooo/2016/06/01/574ea61871f6a.png" alt="2016-06-01_170233.png"></p>
+<h2 id="2-给nginx开启文件目录模式，用于文件下载"><a href="#2-给nginx开启文件目录模式，用于文件下载" class="headerlink" title="2.给nginx开启文件目录模式，用于文件下载"></a><h1 id=2>2.给nginx开启文件目录模式，用于文件下载</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">location /download&#123;</span><br><span class="line">    root /zen/data/;</span><br><span class="line">    autoindex on;</span><br><span class="line">    autoindex_exact_size off;</span><br><span class="line">    autoindex_localtime on;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-给nginx开启简单加密模式"><a href="#3-给nginx开启简单加密模式" class="headerlink" title="3.给nginx开启简单加密模式"></a><h1 id=3>3.给nginx开启简单加密模式</h2><ol>
+<li>修改nginx配置文件</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">location /download/ &#123;</span><br><span class="line">    # 下载目录为 /home/myname/download</span><br><span class="line">    root /home/myname;</span><br><span class="line"></span><br><span class="line">    # 设置目录浏览</span><br><span class="line">    autoindex on; </span><br><span class="line"></span><br><span class="line">    # 默认为on，显示出文件的确切大小，单位是bytes。 </span><br><span class="line">    # 改为off后，显示出文件的大概大小，单位是kB或者MB或者GB </span><br><span class="line">    autoindex_exact_size off;</span><br><span class="line"></span><br><span class="line">    # 默认为off，显示的文件时间为GMT时间</span><br><span class="line">    # 注意:改为on后，显示的文件时间为文件的服务器时间 </span><br><span class="line">    autoindex_localtime on;</span><br><span class="line"></span><br><span class="line">    # 在第一次访问目录时，会弹出输入验证框</span><br><span class="line">    auth_basic &quot;Restricted&quot;;</span><br><span class="line"></span><br><span class="line">    # 存放密码的文件，/etc/nginx/passwd/download</span><br><span class="line">    auth_basic_user_file passwd/download;</span><br><span class="line"></span><br><span class="line">    # 设置charset，解决中文乱码问题</span><br><span class="line">    charset utf-8,gbk;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2)修改密码配置文件<br>输入用户名和密码（密码会在第三步被替换）</p>
+<p>vi &#x2F;etc&#x2F;nginx&#x2F;passwd&#x2F;download</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin:admin</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>设置 admin 的密码（apt-get install apache2-utils）：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htpasswd /etc/nginx/passwd/download admin</span><br></pre></td></tr></table></figure>
+
+<p>4)重启nginx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a target="_blank" rel="noopener" href="http://wenzhixin.net.cn/2013/10/19/nginx_http_auth">http://wenzhixin.net.cn/2013/10/19/nginx_http_auth</a></p>
+<h2 id="4-查看nginx安装了哪些模块"><a href="#4-查看nginx安装了哪些模块" class="headerlink" title="4.查看nginx安装了哪些模块"></a><h1 id=4>4.查看nginx安装了哪些模块</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -V</span><br></pre></td></tr></table></figure>
+<h2 id="5-nginx中获取自定义header"><a href="#5-nginx中获取自定义header" class="headerlink" title="5.nginx中获取自定义header"></a><h1 id=5>5.nginx中获取自定义header</h2><p>如果自定义header为CUSTOM_HEAD则，在nginx中的变量http_custom_head对应它的值。也就是：http_header小写变量</p>
+<h2 id="6-设置请求头"><a href="#6-设置请求头" class="headerlink" title="6.设置请求头"></a><h1 id=6>6.设置请求头</h2><p>proxy_set_header Host $http_host;<br>proxy_set_header X-Forward-For $remote_addr;</p>
+<h2 id="7-nginx黑白名单"><a href="#7-nginx黑白名单" class="headerlink" title="7.nginx黑白名单"></a><h1 id=7>7.nginx黑白名单</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deny IP; </span><br><span class="line">deny subnet; </span><br><span class="line">allow IP; </span><br><span class="line">allow subnet; </span><br><span class="line"># block all ips </span><br><span class="line">deny    all; </span><br><span class="line"># allow all ips </span><br><span class="line">allow    all;</span><br></pre></td></tr></table></figure>
+
+<p>这样设置以后，该服务器上所有的网站都会按照这个设置来拒绝或允许访问。如果想只针对某个网站，可以在具体的网站的配置中加入： </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location / &#123; </span><br><span class="line">  allow   192.168.0.0/24; </span><br><span class="line">  deny    all; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>这样就只允许192.168.0.0网段的ip访问，其他ip访问会返回一个403错误。</p>
+<p>还可以自定义一个403错误的页面，可以在&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;html下新建个error403.html文件，里面按照html的语法写个文档，写上一些说明文字。<br>然后编辑nginx.conf，加入： </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">error_page   403  /error403.html; </span><br><span class="line">location = /error403.html &#123; </span><br><span class="line">         root   html; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8-window版本nginx"><a href="#8-window版本nginx" class="headerlink" title="8.window版本nginx"></a><h1 id=8>8.window版本nginx</h2><p>启动：<code>nginx.exe</code> 或者 <code>start  nginx.exe</code></p>
+<p>重载：<code>nginx.exe -s reload</code></p>
+<p>关闭：<code>nginx -s stop 或taskkill /F /IM nginx.exe &gt; nul</code></p>
+<p>window下 nginx http concat模块的版本： <a target="_blank" rel="noopener" href="http://pan.baidu.com/s/1hrAdm0c">http://pan.baidu.com/s/1hrAdm0c</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/chuncn/archive/2011/10/14/2212291.html">http://www.cnblogs.com/chuncn/archive/2011/10/14/2212291.html</a></p>
+<h2 id="9-cors"><a href="#9-cors" class="headerlink" title="9.cors"></a><h1 id=9>9.cors</h2><p>方式一：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">location ^~ /api  &#123;</span><br><span class="line">    set $cors &quot;&quot;;</span><br><span class="line">    if ($http_origin ~* (\.eagleon\.id|\.eagleon\.com)) &#123;</span><br><span class="line">        set $cors &quot;true&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    proxy_set_header Cookie $http_cookie;</span><br><span class="line">    proxy_pass http://tomcat.eagleon;</span><br><span class="line"></span><br><span class="line">    if ($cors = &quot;true&quot;) &#123;</span><br><span class="line">        add_header &#x27;Access-Control-Allow-Origin&#x27; &quot;$http_origin&quot;;</span><br><span class="line">        add_header &#x27;Access-Control-Allow-Methods&#x27; &#x27;GET, POST, OPTIONS, DELETE, PUT&#x27;;</span><br><span class="line">        add_header &#x27;Access-Control-Allow-Credentials&#x27; &#x27;true&#x27;;</span><br><span class="line">        add_header &#x27;Access-Control-Allow-Headers&#x27; &#x27;User-Agent,Keep-Alive,Content-Type&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">    if ($request_method = OPTIONS) &#123;</span><br><span class="line">        add_header Access-Control-Allow-Origin $http_origin;</span><br><span class="line">        add_header Access-Control-Allow-Methods GET,POST,OPTIONS;</span><br><span class="line">        add_header Access-Control-Allow-Credentials true;</span><br><span class="line">        add_header Access-Control-Allow-Headers DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type;</span><br><span class="line">        add_header Access-Control-Allow-Headers Content-Type;</span><br><span class="line">        add_header Access-Control-Max-Age 1728000;</span><br><span class="line">        return 204;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方式二：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#跨域访问</span><br><span class="line">map $http_origin $corsHost &#123;</span><br><span class="line">    default 0;</span><br><span class="line">    &quot;~http://www.123admin.com&quot; http://www.123admin.com;</span><br><span class="line">    &quot;~https://www.123admin.com&quot; https://www.123admin.com;</span><br><span class="line">    &quot;~http://m.123admin.com&quot; http://m.123admin.com;</span><br><span class="line">    &quot;~http://wap.123admin.com&quot; http://wap.123admin.com;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name search.123admin.com;</span><br><span class="line">    root /nginx;</span><br><span class="line">    location / &#123;</span><br><span class="line">        add_header Access-Control-Allow-Origin $corsHost;</span><br><span class="line">        add_header Access-Control-Allow-Headers Content-Type;</span><br><span class="line">        add_header Access-Control-Allow-Methods GET,POST,OPTIONS;</span><br><span class="line">        add_header Access-Control-Allow-Credentials true;</span><br><span class="line">        # 其他逻辑</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2022 大侠曾
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>
